@@ -1,4 +1,4 @@
-# PillPartner
+# PillPartner - System Zarządzania Przypomnieniami o Lekach
 
 **PillPartner** to aplikacja mobilna stworzona za pomocą React Native i Expo, która pomaga użytkownikom zarządzać regularnym przyjmowaniem leków. Aplikacja oferuje intuicyjny interfejs do ustawiania przypomnień o dawkach leków, monitorowania postępów oraz zarządzania harmonogramem przyjmowania różnych medykamentów.
 
