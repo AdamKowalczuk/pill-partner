@@ -6,7 +6,7 @@
 
 - [Funkcje](#funkcje)
 - [Instalacja](#instalacja)
-- [Stos technologiczny](#technologie)
+- [Stos technologiczny](#stos-technologiczny)
 - [Zasoby](#zasoby)
 
 ## Funkcje
