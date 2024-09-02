@@ -9,20 +9,34 @@ import MoodIcon from "../assets/icons/mood-icon.svg";
 import AddIcon from "../assets/icons/add-icon.svg";
 import CalendarIcon from "../assets/icons/calendar-icon.svg";
 import ProfileIcon from "../assets/icons/profile-icon.svg";
-import Profile from "@/screens/Profile";
 import History from "@/screens/History";
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, View } from "react-native";
 import { colors } from "@/styles/colors";
+import Settings from "@/screens/Settings";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function MainTabNavigator() {
-  return (
-    <NavigationContainer>
+export default function AppNavigation() {
+  function MyStack() {
+    return (
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Tabs"
+          component={MyTabs}
+          options={{ headerShown: true }}
+        />
+      </Stack.Navigator>
+    );
+  }
+
+  function MyTabs() {
+    return (
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: colors.primary,
+          tabBarActiveTintColor: colors.primary500,
           tabBarInactiveTintColor: "#808080",
           tabBarStyle: styles.tabBar,
           headerStyle: styles.header,
@@ -54,11 +68,7 @@ export default function MainTabNavigator() {
           options={{
             tabBarIcon: ({ color }) => (
               <View style={styles.addIcon}>
-                <AddIcon
-                  color={color === "#808080" ? "#fff" : color}
-                  width={16}
-                  height={16}
-                />
+                <AddIcon color="#fff" width={16} height={16} />
               </View>
             ),
           }}
@@ -73,8 +83,8 @@ export default function MainTabNavigator() {
           }}
         />
         <Tab.Screen
-          name="Profil"
-          component={Profile}
+          name="Ustawienia"
+          component={Settings}
           options={{
             tabBarIcon: ({ color }) => (
               <ProfileIcon color={color} width={30} height={30} />
@@ -82,14 +92,20 @@ export default function MainTabNavigator() {
           }}
         />
       </Tab.Navigator>
+    );
+  }
+  return (
+    <NavigationContainer>
+      {/* <MyStack /> */}
+      <MyTabs />
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: colors.primary,
-    height: 56,
+    backgroundColor: colors.primary500,
+    height: 56 + (StatusBar.currentHeight || 0),
   },
   headerTitle: {
     fontWeight: "bold",
@@ -104,7 +120,7 @@ const styles = StyleSheet.create({
   addIcon: {
     width: 56,
     height: 56,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primary500,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
