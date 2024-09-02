@@ -1,14 +1,16 @@
 import { Button, ButtonText } from "@/components/ui/button";
 import FormInput from "@/components/ui/form-input";
 import { Input, InputField } from "@/components/ui/input";
-import { Text } from "@/components/ui/text";
+import { Text } from "react-native";
 import { registerSchema } from "@/validation/validationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
+import AuthImage from "../assets/images/auth-image.svg";
+import { globalStyles } from "@/styles/global";
 
-const Register = ({ changeTab }) => {
+const Register = ({ changeTab }: any) => {
   const {
     control,
     handleSubmit,
@@ -21,15 +23,19 @@ const Register = ({ changeTab }) => {
     console.log(data);
   };
   return (
-    <View>
-      <Text style={styles.loginHeader}>Zarejestruj się</Text>
-      <View style={styles.loginTextWrapper}>
-        <Text style={styles.loginText}>Masz już konto?</Text>
-        <Button onPress={() => changeTab("login")} variant="link">
-          <ButtonText>Zaloguj się</ButtonText>
-        </Button>
+    <>
+      <AuthImage style={globalStyles.authImage} />
+      <View style={globalStyles.authTopWrapper}>
+        <Text style={globalStyles.authHeader}>Zarejestruj się</Text>
+        <View style={globalStyles.authTextWrapper}>
+          <Text style={globalStyles.authText}>Masz już konto?</Text>
+          <Button onPress={() => changeTab("login")} variant="link">
+            <ButtonText>Zaloguj się</ButtonText>
+          </Button>
+        </View>
       </View>
-      <View style={styles.buttonWrapper}>
+
+      <View style={globalStyles.authButtonWrapper}>
         <FormInput
           control={control}
           name="email"
@@ -53,43 +59,18 @@ const Register = ({ changeTab }) => {
           error={errors?.confirmPassword?.message}
           type="password"
         />
+        <Button
+          size="md"
+          variant="solid"
+          action="primary"
+          onPress={handleSubmit(onSubmit)}
+        >
+          <ButtonText>Zarejestruj się</ButtonText>
+        </Button>
       </View>
-
-      <Button
-        size="md"
-        variant="solid"
-        action="primary"
-        onPress={handleSubmit(onSubmit)}
-      >
-        <ButtonText>Zarejestruj się</ButtonText>
-      </Button>
-    </View>
+    </>
   );
 };
 
-const styles = StyleSheet.create({
-  loginHeader: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  loginTextWrapper: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    gap: 6,
-    fontSize: 14,
-  },
-  loginText: {
-    color: "#525252",
-  },
-  buttonWrapper: {
-    display: "flex",
-    gap: 20,
-  },
-  rememberPasswordButton: {
-    display: "flex",
-    alignItems: "flex-end",
-  },
-});
+const styles = StyleSheet.create({});
 export default Register;

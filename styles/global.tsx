@@ -10,10 +10,11 @@ export const globalStyles = StyleSheet.create({
     gap: 32,
   },
   authImage: {
-    width: "50%",
+    width: "100%",
   },
   authTopWrapper: {
     display: "flex",
+    gap: 4,
   },
   authHeader: {
     fontSize: 24,
@@ -37,5 +38,6 @@ export const globalStyles = StyleSheet.create({
   rememberPasswordButton: {
     display: "flex",
     alignItems: "flex-end",
+    marginTop: -10,
   },
 });

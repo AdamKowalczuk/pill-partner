@@ -1,23 +1,31 @@
 import { StatusBar } from "expo-status-bar";
 import "./global.css";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { GluestackUIProvider } from "./components/ui/gluestack-ui-provider";
+import AppNavigation from "./navigation/AppNavigation";
+
+import Auth from "./screens/Auth";
+import useAuthStore from "./store/useAuthStore";
 
 export default function App() {
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   return (
-    <GluestackUIProvider mode="light">
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-
-        <StatusBar style="auto" />
-      </View>
-    </GluestackUIProvider>
+    <>
+      <SafeAreaView style={styles.safeAreaView}>
+        <StatusBar backgroundColor="#fff" />
+        <GluestackUIProvider>
+          {isLoggedIn ? <AppNavigation /> : <Auth />}
+        </GluestackUIProvider>
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeAreaView: {
     flex: 1,
+  },
+  container: {
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
