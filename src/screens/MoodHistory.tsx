@@ -1,4 +1,4 @@
-import { Text } from "@/components/ui/text";
+import { Text } from "react-native";
 import React from "react";
 
 const MoodHistory = () => {

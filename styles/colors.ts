@@ -8,6 +8,7 @@ export const colors = {
   // primary100: "#808080",
   // primary900: "#0A0A0A",
 
+  white: "#fff",
   border300: "#D3D3D3",
   typography600: "#737373",
   typography900: "#262627",

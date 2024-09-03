@@ -1,8 +1,8 @@
-import { Text } from "@/components/ui/text";
+import { Text } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, View } from "react-native";
-import ChevronRightIcon from "../assets/icons/chevron-right-icon.svg";
+import ChevronRightIcon from "@/src/assets/icons/chevron-right-icon.svg";
 
 interface SettingsItemProps {
   onPress: () => void;

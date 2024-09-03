@@ -1,10 +1,10 @@
-import { Button, ButtonText } from "@/components/ui/button";
+import { Button, ButtonText } from "@/src/components/ui/button";
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import NotFoundImage from "../assets/images/not-found-image.svg";
 
-const NotFound = () => {
+const NotFoundScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NotFound;
+export default NotFoundScreen;

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Register from "./Register";
-import Login from "./Login";
+import Register from "./RegisterScreen";
+import Login from "./LoginScreen";
 import { globalStyles } from "@/styles/global";
 import { Text, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { colors } from "@/styles/colors";
 import ChevronLeftIcon from "../assets/icons/chevron-left-icon.svg";
-import PasswordReset from "./PasswordReset";
+import PasswordReset from "./PasswordResetScreen";
 
 const Auth = () => {
   const [activeTab, setActiveTab] = useState("login");

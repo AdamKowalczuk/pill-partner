@@ -1,16 +1,16 @@
-import { Text } from "@/components/ui/text";
+import { Text } from "react-native";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { View } from "react-native";
-import SettingsItem from "./SettingsItem";
 import MoonIcon from "../assets/icons/moon-icon.svg";
 import GlobeIcon from "../assets/icons/globe-icon.svg";
 import LockIcon from "../assets/icons/lock-icon.svg";
 import LogoutIcon from "../assets/icons/logout-icon.svg";
 import NotificationIcon from "../assets/icons/notification-icon.svg";
 import { colors } from "@/styles/colors";
+import SettingsItem from "../components/custom/SettingsItem";
 
-const Settings = ({ navigation }: any) => {
+const SettingsScreen = ({ navigation }: any) => {
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
   return (
     <View style={styles.container}>
@@ -74,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Settings;
+export default SettingsScreen;

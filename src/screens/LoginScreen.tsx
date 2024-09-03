@@ -1,5 +1,5 @@
-import { Button, ButtonText } from "@/components/ui/button";
-import { Input, InputField } from "@/components/ui/input";
+import { Button, ButtonText } from "@/src/components/ui/button";
+import { Input, InputField } from "@/src/components/ui/input";
 
 import { loginSchema } from "@/validation/validationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,11 +7,11 @@ import React from "react";
 import { Image, StyleSheet, Text } from "react-native";
 import { View } from "react-native";
 import { useForm } from "react-hook-form";
-import FormInput from "@/components/ui/form-input";
+import FormInput from "@/src/components/ui/form-input";
 import AuthImage from "../assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
-const Login = ({ changeTab }: any) => {
+const LoginScreen = ({ changeTab }: any) => {
   const {
     control,
     handleSubmit,
@@ -78,4 +78,4 @@ const Login = ({ changeTab }: any) => {
 
 const styles = StyleSheet.create({});
 
-export default Login;
+export default LoginScreen;

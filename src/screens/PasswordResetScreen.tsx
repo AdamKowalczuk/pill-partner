@@ -1,5 +1,5 @@
-import { Button, ButtonText } from "@/components/ui/button";
-import FormInput from "@/components/ui/form-input";
+import { Button, ButtonText } from "@/src/components/ui/button";
+import FormInput from "@/src/components/ui/form-input";
 import { passwordResetSchema } from "@/validation/validationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
@@ -9,7 +9,7 @@ import { Text, View } from "react-native";
 import AuthImage from "../assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
-const PasswordReset = ({ changeTab }: any) => {
+const PasswordResetScreen = ({ changeTab }: any) => {
   const {
     control,
     handleSubmit,
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PasswordReset;
+export default PasswordResetScreen;

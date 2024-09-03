@@ -1,6 +1,6 @@
-import { Button, ButtonText } from "@/components/ui/button";
-import FormInput from "@/components/ui/form-input";
-import { Input, InputField } from "@/components/ui/input";
+import { Button, ButtonText } from "@/src/components/ui/button";
+import FormInput from "@/src/components/ui/form-input";
+import { Input, InputField } from "@/src/components/ui/input";
 import { Text } from "react-native";
 import { registerSchema } from "@/validation/validationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,7 +10,7 @@ import { StyleSheet, View } from "react-native";
 import AuthImage from "../assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
-const Register = ({ changeTab }: any) => {
+const RegisterScreen = ({ changeTab }: any) => {
   const {
     control,
     handleSubmit,
@@ -73,4 +73,4 @@ const Register = ({ changeTab }: any) => {
 };
 
 const styles = StyleSheet.create({});
-export default Register;
+export default RegisterScreen;

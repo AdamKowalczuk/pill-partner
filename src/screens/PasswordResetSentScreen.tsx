@@ -1,4 +1,4 @@
-import { Button, ButtonText } from "@/components/ui/button";
+import { Button, ButtonText } from "@/src/components/ui/button";
 import React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import { Text, View } from "react-native";
@@ -8,7 +8,7 @@ import { colors } from "@/styles/colors";
 
 const windowHeight = Dimensions.get("window").height;
 
-const PasswordResetSent = ({ navigation }: any) => {
+const PasswordResetSentScreen = ({ navigation }: any) => {
   return (
     <>
       <View style={styles.container}>
@@ -61,7 +61,4 @@ const styles = StyleSheet.create({
   subtitle: {},
 });
 
-export default PasswordResetSent;
-function calc(arg0: number): any {
-  throw new Error("Function not implemented.");
-}
+export default PasswordResetSentScreen;

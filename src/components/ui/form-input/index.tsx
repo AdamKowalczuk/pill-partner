@@ -1,7 +1,7 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import { View, Text, StyleSheet } from "react-native";
-import { Input, InputField } from "@/components/ui/input";
+import { Input, InputField } from "@/src/components/ui/input";
 import { colors } from "@/styles/colors";
 
 interface FormInputWithControllerProps {

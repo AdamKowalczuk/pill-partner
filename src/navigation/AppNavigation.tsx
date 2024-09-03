@@ -1,19 +1,19 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MedicationList from "../screens/MedicationList";
-import AddMood from "../screens/AddMood";
-import AddMedication from "../screens/AddMedication";
+import AddMedication from "../screens/AddMedicationScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import PillsIcon from "../assets/icons/pills-icon.svg";
 import MoodIcon from "../assets/icons/mood-icon.svg";
 import AddIcon from "../assets/icons/add-icon.svg";
 import CalendarIcon from "../assets/icons/calendar-icon.svg";
 import ProfileIcon from "../assets/icons/profile-icon.svg";
-import History from "@/screens/History";
+import History from "@/src/screens/History";
 import { StatusBar, StyleSheet, View } from "react-native";
 import { colors } from "@/styles/colors";
-import Settings from "@/screens/Settings";
+import Settings from "@/src/screens/SettingsScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MedicationScreen from "../screens/MedicationScreen";
+import MoodScreen from "../screens/MoodScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,7 +46,7 @@ export default function AppNavigation() {
       >
         <Tab.Screen
           name="Leki"
-          component={MedicationList}
+          component={MedicationScreen}
           options={{
             tabBarIcon: ({ color }) => (
               <PillsIcon color={color} width={30} height={30} />
@@ -55,7 +55,7 @@ export default function AppNavigation() {
         />
         <Tab.Screen
           name="Nastrój"
-          component={AddMood}
+          component={MoodScreen}
           options={{
             tabBarIcon: ({ color }) => (
               <MoodIcon color={color} width={30} height={30} />
