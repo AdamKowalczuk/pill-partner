@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import TabSwitcher from "../components/custom/TabSwitcher";
-import MoodHistoryScreen from "./MoodHistory";
+import TabSwitcher from "../../components/custom/TabSwitcher";
+import MoodHistoryScreen from "./MoodHistoryScreen";
 import AddMoodScreen from "./AddMoodScreen";
 
 const MoodScreen = () => {

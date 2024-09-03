@@ -8,7 +8,7 @@ import { colors } from "@/styles/colors";
 import ChevronLeftIcon from "../assets/icons/chevron-left-icon.svg";
 import PasswordReset from "./PasswordResetScreen";
 
-const Auth = () => {
+const AuthScreen = () => {
   const [activeTab, setActiveTab] = useState("login");
 
   const handleChangeActiveTab = (tab: string) => {
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Auth;
+export default AuthScreen;

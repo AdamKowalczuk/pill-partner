@@ -1,19 +1,19 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import AddMedication from "../screens/AddMedicationScreen";
+import AddMedication from "../screens/medication/AddMedicationScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import PillsIcon from "../assets/icons/pills-icon.svg";
 import MoodIcon from "../assets/icons/mood-icon.svg";
 import AddIcon from "../assets/icons/add-icon.svg";
 import CalendarIcon from "../assets/icons/calendar-icon.svg";
 import ProfileIcon from "../assets/icons/profile-icon.svg";
-import History from "@/src/screens/History";
+import History from "@/src/screens/history/History";
 import { StatusBar, StyleSheet, View } from "react-native";
 import { colors } from "@/styles/colors";
-import Settings from "@/src/screens/SettingsScreen";
+import Settings from "@/src/screens/settings/SettingsScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MedicationScreen from "../screens/MedicationScreen";
-import MoodScreen from "../screens/MoodScreen";
+import MedicationScreen from "../screens/medication/MedicationScreen";
+import MoodScreen from "../screens/mood/MoodScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

@@ -8,7 +8,7 @@ import LockIcon from "../assets/icons/lock-icon.svg";
 import LogoutIcon from "../assets/icons/logout-icon.svg";
 import NotificationIcon from "../assets/icons/notification-icon.svg";
 import { colors } from "@/styles/colors";
-import SettingsItem from "../components/custom/SettingsItem";
+import SettingsItem from "@/src/components/custom/SettingsItem";
 
 const SettingsScreen = ({ navigation }: any) => {
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import TabSwitcher from "../components/custom/TabSwitcher";
-import MedicationList from "./MedicationList";
-import MedicationStock from "./MedicationStock";
+import TabSwitcher from "../../components/custom/TabSwitcher";
+import MedicationList from "./MedicationListScreen";
+import MedicationStock from "./MedicationStockScreen";
 
 const MedicationScreen = () => {
   const [activeTab, setActiveTab] = useState("Leki");

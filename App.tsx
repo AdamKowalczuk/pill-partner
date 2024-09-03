@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet } from "react-native";
 import { GluestackUIProvider } from "./src/components/ui/gluestack-ui-provider";
 import AppNavigation from "./src/navigation/AppNavigation";
 
-import Auth from "./src/screens/Auth";
+import Auth from "./src/screens/auth/AuthScreen";
 import useAuthStore from "./src/store/useAuthStore";
 
 export default function App() {

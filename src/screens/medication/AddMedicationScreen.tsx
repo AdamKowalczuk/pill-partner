@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import EmptyList from "../components/custom/MessageCard";
-import MessageCard from "../components/custom/MessageCard";
+import MessageCard from "@/src/components/custom/MessageCard";
 import EmptyListImage from "../assets/images/empty-list-image.svg";
 
 const AddMedicationScreen = () => {

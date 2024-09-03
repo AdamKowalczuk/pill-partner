@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const MedicationStock = () => {
+const MedicationStockScreen = () => {
   return (
     <View>
       <Text>MedicationStock</Text>
@@ -9,4 +9,4 @@ const MedicationStock = () => {
   );
 };
 
-export default MedicationStock;
+export default MedicationStockScreen;
