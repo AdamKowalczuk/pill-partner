@@ -1,6 +1,6 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
 import FormInput from "@/src/components/ui/form-input";
-import { passwordResetSchema } from "@/validation/validationSchemas";
+import { passwordResetSchema } from "@/validation/medicationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";

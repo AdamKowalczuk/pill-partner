@@ -2,7 +2,7 @@ import { Button, ButtonText } from "@/src/components/ui/button";
 import FormInput from "@/src/components/ui/form-input";
 import { Input, InputField } from "@/src/components/ui/input";
 import { Text } from "react-native";
-import { registerSchema } from "@/validation/validationSchemas";
+import { registerSchema } from "@/validation/medicationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";

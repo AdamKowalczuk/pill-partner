@@ -1,7 +1,7 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
 import { Input, InputField } from "@/src/components/ui/input";
 
-import { loginSchema } from "@/validation/validationSchemas";
+import { loginSchema } from "@/validation/medicationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Image, StyleSheet, Text } from "react-native";
