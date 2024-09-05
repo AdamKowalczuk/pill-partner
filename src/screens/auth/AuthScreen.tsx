@@ -5,7 +5,7 @@ import { globalStyles } from "@/styles/global";
 import { Text, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { colors } from "@/styles/colors";
-import ChevronLeftIcon from "../assets/icons/chevron-left-icon.svg";
+import ChevronLeftIcon from "@/src/assets/icons/chevron-left-icon.svg";
 import PasswordReset from "./PasswordResetScreen";
 
 const AuthScreen = () => {

@@ -1,12 +1,12 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
 import FormInput from "@/src/components/ui/form-input";
-import { passwordResetSchema } from "@/validation/medicationSchemas";
+import { passwordResetSchema } from "@/validation/authSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { StyleSheet } from "react-native";
 import { Text, View } from "react-native";
-import AuthImage from "../assets/images/auth-image.svg";
+import AuthImage from "@/src/assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
 const PasswordResetScreen = ({ changeTab }: any) => {

@@ -2,7 +2,7 @@ import { Button, ButtonText } from "@/src/components/ui/button";
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import NotFoundImage from "../assets/images/not-found-image.svg";
+import NotFoundImage from "@/src/assets/images/not-found-image.svg";
 
 const NotFoundScreen = () => {
   const navigation = useNavigation();

@@ -1,12 +1,11 @@
-import { Text } from "react-native";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { View } from "react-native";
-import MoonIcon from "../assets/icons/moon-icon.svg";
-import GlobeIcon from "../assets/icons/globe-icon.svg";
-import LockIcon from "../assets/icons/lock-icon.svg";
-import LogoutIcon from "../assets/icons/logout-icon.svg";
-import NotificationIcon from "../assets/icons/notification-icon.svg";
+import MoonIcon from "@/src/assets/icons/moon-icon.svg";
+import GlobeIcon from "@/src/assets/icons/globe-icon.svg";
+import LockIcon from "@/src/assets/icons/lock-icon.svg";
+import LogoutIcon from "@/src/assets/icons/logout-icon.svg";
+import NotificationIcon from "@/src/assets/icons/notification-icon.svg";
 import { colors } from "@/styles/colors";
 import SettingsItem from "@/src/components/custom/SettingsItem";
 

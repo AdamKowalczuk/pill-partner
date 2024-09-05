@@ -1,6 +1,4 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
-import { Input, InputField } from "@/src/components/ui/input";
-
 import { loginSchema } from "@/validation/medicationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
@@ -8,7 +6,7 @@ import { Image, StyleSheet, Text } from "react-native";
 import { View } from "react-native";
 import { useForm } from "react-hook-form";
 import FormInput from "@/src/components/ui/form-input";
-import AuthImage from "../assets/images/auth-image.svg";
+import AuthImage from "@/src/assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
 const LoginScreen = ({ changeTab }: any) => {

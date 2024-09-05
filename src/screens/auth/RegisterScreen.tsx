@@ -2,12 +2,12 @@ import { Button, ButtonText } from "@/src/components/ui/button";
 import FormInput from "@/src/components/ui/form-input";
 import { Input, InputField } from "@/src/components/ui/input";
 import { Text } from "react-native";
-import { registerSchema } from "@/validation/medicationSchemas";
+import { registerSchema } from "@/validation/authSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
-import AuthImage from "../assets/images/auth-image.svg";
+import AuthImage from "@/src/assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
 const RegisterScreen = ({ changeTab }: any) => {

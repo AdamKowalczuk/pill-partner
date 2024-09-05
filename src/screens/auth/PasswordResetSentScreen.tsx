@@ -2,7 +2,7 @@ import { Button, ButtonText } from "@/src/components/ui/button";
 import React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import { Text, View } from "react-native";
-import SendImage from "../assets/images/send-image.svg";
+import SendImage from "@/src/assets/images/send-image.svg";
 import { globalStyles } from "@/styles/global";
 import { colors } from "@/styles/colors";
 

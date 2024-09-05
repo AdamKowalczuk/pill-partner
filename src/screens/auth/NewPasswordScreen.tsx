@@ -6,7 +6,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { StyleSheet } from "react-native";
 import { Text, View } from "react-native";
-import AuthImage from "../assets/images/auth-image.svg";
+import AuthImage from "@/src/assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 
 const NewPasswordScreen = ({ changeTab }: any) => {
