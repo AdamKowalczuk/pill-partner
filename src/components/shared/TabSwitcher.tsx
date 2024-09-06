@@ -1,42 +1,51 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Pressable,
+} from "react-native";
 import { colors } from "@/styles/colors";
 
 interface TabSwitcherProps {
-  tabs: string[];
-  onTabChange: (tab: string) => void;
+  tabs: any;
 }
 
-const TabSwitcher = ({ tabs, onTabChange }: TabSwitcherProps) => {
-  const [activeTab, setActiveTab] = useState<string>(tabs[0]);
+const TabSwitcher = ({ tabs }: TabSwitcherProps) => {
+  const [activeTab, setActiveTab] = useState<number>(0);
 
-  const handleTabPress = (tab: string) => {
+  const handleTabPress = (tab: number) => {
     setActiveTab(tab);
-    onTabChange(tab);
   };
 
   return (
-    <View style={styles.tabContainer}>
-      {tabs.map((tab) => (
-        <TouchableOpacity
-          key={tab}
-          style={[
-            styles.tab,
-            activeTab === tab ? styles.activeTab : styles.inactiveTab,
-          ]}
-          onPress={() => handleTabPress(tab)}
-        >
-          <Text
+    <>
+      <View style={styles.tabContainer}>
+        {tabs.map((tab: any, tabId: number) => (
+          <Pressable
+            key={tab.label}
             style={[
-              styles.tabText,
-              activeTab === tab ? styles.activeTabText : styles.inactiveTabText,
+              styles.tab,
+              activeTab === tabId ? styles.activeTab : styles.inactiveTab,
             ]}
+            onPress={() => handleTabPress(tabId)}
           >
-            {tab}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
+            <Text
+              style={[
+                styles.tabText,
+                activeTab === tabId
+                  ? styles.activeTabText
+                  : styles.inactiveTabText,
+              ]}
+            >
+              {tab.label}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+      {tabs[activeTab].component}
+    </>
   );
 };
 

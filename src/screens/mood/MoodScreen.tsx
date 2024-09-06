@@ -3,23 +3,17 @@ import { View } from "react-native";
 import TabSwitcher from "../../components/shared/TabSwitcher";
 import MoodHistoryScreen from "./MoodHistoryScreen";
 import AddMoodScreen from "./AddMoodScreen";
+import { globalStyles } from "@/styles/global";
 
 const MoodScreen = () => {
-  const [activeTab, setActiveTab] = useState("Dzisiejszy nastrój");
-  const handleTabChange = (tabName: string) => {
-    setActiveTab(tabName);
-  };
   return (
-    <View>
+    <View style={globalStyles.rootLayoutContainer}>
       <TabSwitcher
-        tabs={["Dzisiejszy nastrój", "Historia"]}
-        onTabChange={handleTabChange}
+        tabs={[
+          { label: "Dzisiejszy nastrój", component: <AddMoodScreen /> },
+          { label: "Historia", component: <MoodHistoryScreen /> },
+        ]}
       />
-      {activeTab === "Dzisiejszy nastrój" ? (
-        <AddMoodScreen />
-      ) : (
-        <MoodHistoryScreen />
-      )}
     </View>
   );
 };

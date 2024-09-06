@@ -1,31 +1,25 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import { View, Text, StyleSheet } from "react-native";
-import { Input, InputField } from "@/src/components/ui/input";
+import { Textarea, TextareaInput } from "@/src/components/ui/textarea";
 import { colors } from "@/styles/colors";
 
-interface FormInputWithControllerProps {
+interface FormTextareaWithControllerProps {
   name: string;
   control: any;
   label?: string;
   placeholder?: string;
-  variant?: "underlined" | "outline" | "rounded" | undefined;
   size?: "md" | "sm" | "lg" | "xl" | undefined;
   error?: any;
-  type?: "text" | "password";
-  multiline?: boolean;
 }
 
-const FormInput: React.FC<FormInputWithControllerProps> = ({
+const FormTextarea: React.FC<FormTextareaWithControllerProps> = ({
   name,
   control,
   label,
   placeholder,
-  variant = "outline",
   size = "md",
   error,
-  type = "text",
-  multiline = false,
 }) => {
   return (
     <View style={styles.container}>
@@ -34,16 +28,14 @@ const FormInput: React.FC<FormInputWithControllerProps> = ({
         control={control}
         name={name}
         render={({ field: { onChange, onBlur, value } }) => (
-          <Input variant={variant} size={size} isInvalid={!!error}>
-            <InputField
+          <Textarea size={size} isInvalid={!!error}>
+            <TextareaInput
               placeholder={placeholder}
               onBlur={onBlur}
-              type={type}
               onChangeText={onChange}
               value={value}
-              multiline={multiline}
             />
-          </Input>
+          </Textarea>
         )}
       />
       {error && <Text style={styles.errorText}>{error}</Text>}
@@ -65,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FormInput;
+export default FormTextarea;

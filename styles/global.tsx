@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "./colors";
 
 export const globalStyles = StyleSheet.create({
   authLayout: {
@@ -39,5 +40,15 @@ export const globalStyles = StyleSheet.create({
     display: "flex",
     alignItems: "flex-end",
     marginTop: -10,
+  },
+
+  rootLayoutContainer: {
+    flex: 1,
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingTop: 32,
+    paddingBottom: 32,
+    gap: 30,
+    backgroundColor: colors.white,
   },
 });
