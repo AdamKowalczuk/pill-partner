@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Register from "./RegisterScreen";
 import Login from "./LoginScreen";
 import { globalStyles } from "@/styles/global";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { colors } from "@/styles/colors";
 import ChevronLeftIcon from "@/src/assets/icons/chevron-left-icon.svg";
@@ -20,9 +20,9 @@ const AuthScreen = () => {
       <View style={styles.authHeader}>
         <View style={styles.leftIconContainer}>
           {activeTab === "passwordReset" ? (
-            <TouchableOpacity onPress={() => handleChangeActiveTab("login")}>
+            <Pressable onPress={() => handleChangeActiveTab("login")}>
               <ChevronLeftIcon />
-            </TouchableOpacity>
+            </Pressable>
           ) : null}
         </View>
         <Text style={styles.authText}>PillPartner</Text>

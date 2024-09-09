@@ -8,11 +8,12 @@ import LogoutIcon from "@/src/assets/icons/logout-icon.svg";
 import NotificationIcon from "@/src/assets/icons/notification-icon.svg";
 import { colors } from "@/styles/colors";
 import SettingsItem from "@/src/components/custom/SettingsItem";
+import { globalStyles } from "@/styles/global";
 
 const SettingsScreen = ({ navigation }: any) => {
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.rootLayoutContainer}>
       <View style={styles.list}>
         <SettingsItem
           onPress={() => console.log("NotificationSettings")}

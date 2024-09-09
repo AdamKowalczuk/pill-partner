@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Pressable, Text } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, View } from "react-native";
@@ -18,7 +18,7 @@ const SettingsItem = ({
   showChevron = false,
 }: SettingsItemProps) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.listItem}>
+    <Pressable onPress={onPress} style={styles.listItem}>
       <View style={styles.listItemContent}>
         <View style={styles.listItemLeft}>
           <Icon />
@@ -27,7 +27,7 @@ const SettingsItem = ({
 
         {showChevron && <ChevronRightIcon />}
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
