@@ -14,8 +14,12 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { pl } from "date-fns/locale";
 
 interface CalendarProps {
-  moodData: { date: string; mood: number }[];
-  customIcon?: (mood: number) => JSX.Element;
+  data: {
+    date: string;
+    primaryColor: string;
+    secondaryColor?: string | null;
+    Icon: any;
+  }[];
 }
 
 const monthNames: any = {
@@ -33,7 +37,7 @@ const monthNames: any = {
   grudnia: "Grudzień",
 };
 
-const Calendar = ({ moodData, customIcon }: CalendarProps) => {
+const Calendar = ({ data }: CalendarProps) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (date: Date) => {
@@ -54,20 +58,31 @@ const Calendar = ({ moodData, customIcon }: CalendarProps) => {
 
   const renderDayIcon = (day: Date) => {
     const formattedDay = format(day, "yyyy-MM-dd");
-    const moodForDay = moodData.find(
-      (mood) => mood.date === formattedDay
-    )?.mood;
 
-    if (customIcon && moodForDay) {
-      return customIcon(moodForDay); // Jeśli customIcon został podany, renderuj go
-    }
+    const result = data.find((item) => item.date === formattedDay);
+    const IconForDay = result?.Icon;
+    const colorForIcon = result?.primaryColor;
+    const formattedNumber = format(day, "d");
 
-    if (moodForDay === 5)
-      return <FontAwesome5 name="smile" size={24} color={colors.primary500} />;
-    if (moodForDay === 1)
-      return <FontAwesome5 name="frown" size={24} color={colors.error500} />;
-    // Pozostałe ikony i kolory nastrojów
-    return <FontAwesome5 name="meh" size={24} color={colors.gray500} />;
+    return IconForDay ? (
+      <View key={day.toString()} style={styles.day}>
+        <View
+          style={[
+            styles.dayWrapper,
+            {
+              backgroundColor: result.secondaryColor
+                ? result.secondaryColor
+                : "transparent",
+            },
+          ]}
+        >
+          <IconForDay color={colorForIcon} />
+        </View>
+        <Text> {formattedNumber}</Text>
+      </View>
+    ) : (
+      <View key={day.toString()} style={styles.day} />
+    );
   };
 
   const daysInMonth = getDaysInMonth(currentDate);
@@ -75,44 +90,50 @@ const Calendar = ({ moodData, customIcon }: CalendarProps) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={handlePrevMonth}>
-          <FontAwesome5
-            name="chevron-left"
-            size={24}
-            color={colors.primary500}
-          />
-        </TouchableOpacity>
-        <Text style={styles.monthText}>
-          {getMonthName(currentDate)} {format(currentDate, "yyyy")}
-        </Text>
-        <TouchableOpacity onPress={handleNextMonth}>
-          <FontAwesome5
-            name="chevron-right"
-            size={24}
-            color={colors.primary500}
-          />
-        </TouchableOpacity>
+      <View style={styles.calendarHeaderWrapper}>
+        <Text style={styles.calendarYear}>2024</Text>
+        <Text style={styles.calendarDay}>Niedz., 8 wrz</Text>
       </View>
-
-      <View style={styles.weekdays}>
-        {["P", "W", "Ś", "C", "P", "S", "N"].map((day) => (
-          <Text key={day} style={styles.weekdayText}>
-            {day}
+      <View style={styles.calendarWrapper}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={handlePrevMonth}>
+            <FontAwesome5
+              name="chevron-left"
+              size={24}
+              color={colors.typography500}
+            />
+          </TouchableOpacity>
+          <Text style={styles.monthText}>
+            {getMonthName(currentDate)} {format(currentDate, "yyyy")}
           </Text>
-        ))}
-      </View>
+          <TouchableOpacity onPress={handleNextMonth}>
+            <FontAwesome5
+              name="chevron-right"
+              size={24}
+              color={colors.typography500}
+            />
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.daysContainer}>
-        {emptyDays.map((_, index) => (
-          <View key={`empty-${index}`} style={styles.day} />
-        ))}
-
-        {daysInMonth.map((day) => (
-          <View key={day.toString()} style={styles.day}>
-            {renderDayIcon(day)}
+        <View>
+          <View style={styles.weekdays}>
+            {["P", "W", "Ś", "C", "P", "S", "N"].map((day) => (
+              <Text key={day} style={styles.weekdayText}>
+                {day}
+              </Text>
+            ))}
           </View>
-        ))}
+
+          <View style={styles.daysContainer}>
+            {emptyDays.map((_, index) => (
+              <View key={`empty-${index}`} style={styles.day} />
+            ))}
+
+            {daysInMonth.map((day) => (
+              <>{renderDayIcon(day)}</>
+            ))}
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -124,6 +145,38 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingRight: 10,
     paddingLeft: 10,
+  },
+  calendarHeaderWrapper: {
+    display: "flex",
+    gap: 5,
+    paddingBottom: 10,
+    paddingTop: 10,
+    paddingRight: 20,
+    paddingLeft: 20,
+    backgroundColor: colors.primary500,
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
+  },
+  calendarYear: {
+    color: colors.white,
+    fontSize: 18,
+  },
+  calendarWrapper: {
+    display: "flex",
+    paddingBottom: 20,
+    paddingTop: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+    gap: 20,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: colors.border300,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
+  },
+  calendarDay: {
+    color: colors.white,
+    fontSize: 26,
   },
   header: {
     flexDirection: "row",
@@ -144,17 +197,26 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     flex: 1,
+    width: "14%",
   },
   daysContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    // justifyContent: "space-between",
+    justifyContent: "center",
   },
   day: {
-    width: "13%",
+    width: "14%",
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 10,
+  },
+  dayWrapper: {
+    height: 40,
+    width: 40,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4,
   },
 });
 
