@@ -6,9 +6,16 @@ import AppNavigation from "./src/navigation/AppNavigation";
 
 import Auth from "./src/screens/auth/AuthScreen";
 import useAuthStore from "./src/store/useAuthStore";
+import { useEffect } from "react";
 
 export default function App() {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+
+  const checkLoginStatus = useAuthStore((state) => state.checkLoginStatus);
+
+  useEffect(() => {
+    checkLoginStatus();
+  }, []);
   return (
     <>
       <SafeAreaView style={styles.safeAreaView}>

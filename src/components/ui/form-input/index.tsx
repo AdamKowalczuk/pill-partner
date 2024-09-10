@@ -3,10 +3,11 @@ import { Controller } from "react-hook-form";
 import { View, Text, StyleSheet } from "react-native";
 import { Input, InputField } from "@/src/components/ui/input";
 import { colors } from "@/styles/colors";
+import { Control } from "react-hook-form";
 
 interface FormInputWithControllerProps {
   name: string;
-  control: any;
+  control: Control<any>;
   label?: string;
   placeholder?: string;
   variant?: "underlined" | "outline" | "rounded" | undefined;

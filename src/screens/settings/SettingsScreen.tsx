@@ -9,9 +9,12 @@ import NotificationIcon from "@/src/assets/icons/notification-icon.svg";
 import { colors } from "@/styles/colors";
 import SettingsItem from "@/src/components/custom/SettingsItem";
 import { globalStyles } from "@/styles/global";
+import useAuthStore from "@/src/store/useAuthStore";
 
 const SettingsScreen = ({ navigation }: any) => {
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
+
+  const logout = useAuthStore((state) => state.logout);
   return (
     <View style={globalStyles.rootLayoutContainer}>
       <View style={styles.list}>
@@ -42,11 +45,7 @@ const SettingsScreen = ({ navigation }: any) => {
           showChevron={true}
         />
         <View style={styles.divider} />
-        <SettingsItem
-          onPress={() => console.log("Logout")}
-          Icon={LogoutIcon}
-          title="Wyloguj się"
-        />
+        <SettingsItem onPress={logout} Icon={LogoutIcon} title="Wyloguj się" />
       </View>
     </View>
   );
