@@ -5,8 +5,6 @@ export const addMedicationSchema = yup.object().shape({
     .string()
     .required("Nazwa leku jest wymagana")
     .min(2, "Nazwa leku musi mieć przynajmniej 2 znaki"),
-
-  usageDescription: yup.string(),
   dosageAmount: yup
     .number()
     .required("Ilość leku jest wymagana")
@@ -24,14 +22,20 @@ export const addMedicationSchema = yup.object().shape({
   stockAmount: yup
     .number()
     .required("Ilość leku na stanie jest wymagana")
-    .min(1, "Ilość leku na stanie musi być przynajmniej 1")
+    .min(1, "Ilość leku na stanie musi być większa niż 0")
     .integer("Ilość leku na stanie musi być liczbą całkowitą"),
 
   notificationTime: yup
-    .string()
-    .required("Czas powiadomienia jest wymagany")
-    .matches(
-      /^([0-9]{2}):([0-9]{2})$/,
-      "Czas powiadomienia musi być w formacie HH:MM"
-    ),
+    .array()
+    .of(
+      yup
+        .string()
+        .required("Czas powiadomienia jest wymagany")
+        .matches(
+          /^([0-9]{2}):([0-9]{2})$/,
+          "Czas powiadomienia musi być w formacie HH:MM"
+        )
+    )
+    .min(1, "Musisz dodać co najmniej jeden czas powiadomienia")
+    .required("Czasy powiadomienia są wymagane"),
 });

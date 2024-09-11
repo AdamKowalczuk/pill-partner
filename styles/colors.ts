@@ -6,7 +6,7 @@ export const colors = {
   error900: "#991B1B",
 
   green100: "#DCFCE7",
-  green200: "BBF7D0",
+  green200: "#BBF7D0",
   green500: "#22C55E",
   green700: "#15803D",
   green900: "#14532D",
