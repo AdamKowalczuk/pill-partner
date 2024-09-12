@@ -6,9 +6,9 @@ import LiquicIcon from "@/src/assets/icons/liquid-icon.svg";
 import { colors } from "@/styles/colors";
 
 const medicationTypes = [
-  { label: "Tabletki", value: "tabletki", Icon: PillsIcon },
-  { label: "Zastrzyk", value: "zastrzyk", Icon: InjectionIcon },
-  { label: "Płyn", value: "plyn", Icon: LiquicIcon },
+  { label: "Tabletki", value: "pills", Icon: PillsIcon },
+  { label: "Zastrzyk", value: "injection", Icon: InjectionIcon },
+  { label: "Płyn", value: "liquid", Icon: LiquicIcon },
 ];
 
 const MedicationTypeSelector = ({ value, onChange }: any) => {

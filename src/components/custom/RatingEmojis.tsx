@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { colors } from "@/styles/colors";
-import { emojis } from "@/src/constants";
+import { emojiIcons } from "@/src/constants";
 
 const RatingEmojis = ({ value, onChange }: any) => {
   return (
     <View style={styles.container}>
-      {emojis.map((emoji) => (
+      {emojiIcons?.map((emoji: any) => (
         <Pressable
           key={emoji.id}
           style={[

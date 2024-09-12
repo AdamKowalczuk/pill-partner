@@ -15,6 +15,7 @@ interface FormInputWithControllerProps {
   error?: any;
   type?: "text" | "password";
   multiline?: boolean;
+  keyboardType?: "default" | "email-address" | "numeric";
 }
 
 const FormInput: React.FC<FormInputWithControllerProps> = ({
@@ -27,6 +28,7 @@ const FormInput: React.FC<FormInputWithControllerProps> = ({
   error,
   type = "text",
   multiline = false,
+  keyboardType = "default",
 }) => {
   return (
     <View style={styles.container}>
@@ -43,6 +45,7 @@ const FormInput: React.FC<FormInputWithControllerProps> = ({
               onChangeText={onChange}
               value={value}
               multiline={multiline}
+              keyboardType={keyboardType}
             />
           </Input>
         )}
