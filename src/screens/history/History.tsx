@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import React from "react";
 import { globalStyles } from "@/styles/global";
 import Calendar from "@/src/components/shared/Calendar";
@@ -42,11 +42,13 @@ const History = () => {
     },
   ];
   return (
-    <View style={globalStyles.rootLayoutContainer}>
-      <Calendar data={historyData} />
-      <Stats Icon={ChartIcon} value="70%" title="Skuteczność miesięczna" />
-      <Stats Icon={DaysIcon} value="14" title="Dni bez pominięcia dawki" />
-    </View>
+    <ScrollView>
+      <View style={globalStyles.rootLayoutContainer}>
+        <Calendar data={historyData} />
+        <Stats Icon={ChartIcon} value="70%" title="Skuteczność miesięczna" />
+        <Stats Icon={DaysIcon} value="14" title="Dni bez pominięcia dawki" />
+      </View>
+    </ScrollView>
   );
 };
 

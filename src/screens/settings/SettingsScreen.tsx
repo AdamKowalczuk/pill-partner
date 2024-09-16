@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { View } from "react-native";
 import MoonIcon from "@/src/assets/icons/moon-icon.svg";
 import GlobeIcon from "@/src/assets/icons/globe-icon.svg";
@@ -17,36 +17,42 @@ const SettingsScreen = ({ navigation }: any) => {
   const logout = useAuthStore((state) => state.logout);
   return (
     <View style={globalStyles.rootLayoutContainer}>
-      <View style={styles.list}>
-        <SettingsItem
-          onPress={() => console.log("NotificationSettings")}
-          Icon={NotificationIcon}
-          title="Powiadomienia"
-        />
-        <View style={styles.divider} />
-        <SettingsItem
-          onPress={() => console.log("ThemeSettings")}
-          Icon={MoonIcon}
-          title="Motyw"
-          showChevron={true}
-        />
-        <View style={styles.divider} />
-        <SettingsItem
-          onPress={() => console.log("LanguageSettings")}
-          Icon={GlobeIcon}
-          title="Język"
-          showChevron={true}
-        />
-        <View style={styles.divider} />
-        <SettingsItem
-          onPress={() => console.log("ChangePassword")}
-          Icon={LockIcon}
-          title="Zmiana hasła"
-          showChevron={true}
-        />
-        <View style={styles.divider} />
-        <SettingsItem onPress={logout} Icon={LogoutIcon} title="Wyloguj się" />
-      </View>
+      <ScrollView>
+        <View style={styles.list}>
+          <SettingsItem
+            onPress={() => console.log("NotificationSettings")}
+            Icon={NotificationIcon}
+            title="Powiadomienia"
+          />
+          <View style={styles.divider} />
+          <SettingsItem
+            onPress={() => console.log("ThemeSettings")}
+            Icon={MoonIcon}
+            title="Motyw"
+            showChevron={true}
+          />
+          <View style={styles.divider} />
+          <SettingsItem
+            onPress={() => console.log("LanguageSettings")}
+            Icon={GlobeIcon}
+            title="Język"
+            showChevron={true}
+          />
+          <View style={styles.divider} />
+          <SettingsItem
+            onPress={() => console.log("ChangePassword")}
+            Icon={LockIcon}
+            title="Zmiana hasła"
+            showChevron={true}
+          />
+          <View style={styles.divider} />
+          <SettingsItem
+            onPress={logout}
+            Icon={LogoutIcon}
+            title="Wyloguj się"
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 };
