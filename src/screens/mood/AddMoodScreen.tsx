@@ -38,7 +38,7 @@ const AddMoodScreen = () => {
   const handleTagSelect = () => {};
 
   return (
-    <View>
+    <>
       {isTodayMoodAdded ? (
         <MessageCard
           Image={SuccessImage}
@@ -101,7 +101,7 @@ const AddMoodScreen = () => {
           </Button>
         </>
       )}
-    </View>
+    </>
   );
 };
 
