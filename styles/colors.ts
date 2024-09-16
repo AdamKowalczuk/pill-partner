@@ -17,6 +17,9 @@ export const colors = {
   lime200: "#D9F99D",
   lime700: "#4D7C0F",
 
+  orange200: "#FED7AA",
+  orange700: "#C2410C",
+
   white: "#fff",
   border300: "#D3D3D3",
 

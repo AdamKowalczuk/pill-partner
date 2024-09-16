@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Register from "./RegisterScreen";
 import Login from "./LoginScreen";
 import { globalStyles } from "@/styles/global";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { colors } from "@/styles/colors";
 import ChevronLeftIcon from "@/src/assets/icons/chevron-left-icon.svg";
@@ -28,15 +28,17 @@ const AuthScreen = () => {
         <Text style={styles.authText}>PillPartner</Text>
         <View style={styles.rightSpace} />
       </View>
-      <View style={globalStyles.authLayout}>
-        {activeTab === "register" ? (
-          <Register changeTab={handleChangeActiveTab} />
-        ) : activeTab === "login" ? (
-          <Login changeTab={handleChangeActiveTab} />
-        ) : (
-          <PasswordReset changeTab={handleChangeActiveTab} />
-        )}
-      </View>
+      <ScrollView>
+        <View style={globalStyles.authLayout}>
+          {activeTab === "register" ? (
+            <Register changeTab={handleChangeActiveTab} />
+          ) : activeTab === "login" ? (
+            <Login changeTab={handleChangeActiveTab} />
+          ) : (
+            <PasswordReset changeTab={handleChangeActiveTab} />
+          )}
+        </View>
+      </ScrollView>
     </>
   );
 };

@@ -3,6 +3,7 @@ import SmilingFaceWithOpenFaceIcon from "@/src/assets/icons/smiling-face-with-op
 import NeutralFaceIcon from "@/src/assets/icons/neutral-face-icon.svg";
 import CryingFace from "@/src/assets/icons/crying-face-icon.svg";
 import WhiteFrowingFaceIcon from "@/src/assets/icons/white-frowning-face-icon.svg";
+import { colors } from "@/styles/colors";
 
 export const moodTagsOptions = [
   "Praca",
@@ -23,9 +24,34 @@ export const moodTagsOptions = [
 ];
 
 export const emojiIcons = [
-  { id: 1, icon: WhiteFrowingFaceIcon },
-  { id: 2, icon: CryingFace },
-  { id: 3, icon: NeutralFaceIcon },
-  { id: 4, icon: SmilingFaceWithOpenFaceIcon },
-  { id: 5, icon: SmilingFaceWithSmilingEyesIcon },
+  {
+    id: 1,
+    icon: SmilingFaceWithOpenFaceIcon,
+    primaryColor: colors.green700,
+    secondaryColor: colors.green200,
+  },
+  {
+    id: 2,
+    icon: SmilingFaceWithSmilingEyesIcon,
+    primaryColor: colors.lime700,
+    secondaryColor: colors.lime200,
+  },
+  {
+    id: 3,
+    icon: NeutralFaceIcon,
+    primaryColor: colors.yellow700,
+    secondaryColor: colors.yellow200,
+  },
+  {
+    id: 4,
+    icon: WhiteFrowingFaceIcon,
+    primaryColor: colors.orange700,
+    secondaryColor: colors.orange200,
+  },
+  {
+    id: 5,
+    icon: CryingFace,
+    primaryColor: colors.error700,
+    secondaryColor: colors.error200,
+  },
 ];

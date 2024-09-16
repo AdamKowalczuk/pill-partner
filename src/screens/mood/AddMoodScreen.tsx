@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import FormInput from "@/src/components/ui/form-input";
 import { Controller, useForm } from "react-hook-form";
@@ -13,6 +13,7 @@ import ErrorMessage from "@/src/components/shared/ErrorMessage";
 import RatingEmojis from "@/src/components/custom/RatingEmojis";
 import FormTextarea from "@/src/components/ui/form-textarea";
 import { globalStyles } from "@/styles/global";
+import { colors } from "@/styles/colors";
 
 const AddMoodScreen = () => {
   const [isTodayMoodAdded, setIsTodayMoodAdded] = useState<boolean>(false);
@@ -40,16 +41,17 @@ const AddMoodScreen = () => {
   return (
     <>
       {isTodayMoodAdded ? (
-        <MessageCard
-          Image={SuccessImage}
-          title="Sukces"
-          subtitle="Twój nastrój zastał zapisany"
-        />
+        <View>
+          <MessageCard
+            Image={SuccessImage}
+            title="Sukces"
+            subtitle="Twój nastrój zastał zapisany"
+          />
+        </View>
       ) : (
         <>
-          <View>
-            <Text>Jak się dzisiaj czujesz?</Text>
-            <Text>Wybierz ocenę od 1 do 5, aby określić swój nastrój</Text>
+          <View style={[styles.wrapper]}>
+            <Text style={[styles.label]}>Jak się dzisiaj czujesz?</Text>
             <Controller
               control={control}
               name="moodRating"
@@ -61,12 +63,9 @@ const AddMoodScreen = () => {
               <ErrorMessage error={errors.moodRating.message} />
             )}
           </View>
-          <View>
-            <Text>Co wpłynęło na Twój nastrój?</Text>
-            <Text>
-              Wybierz jedną lub więcej opcji, które najlepiej opisują dzisiejsze
-              okoliczności
-            </Text>
+          <View style={[styles.wrapper]}>
+            <Text style={[styles.label]}>Co wpłynęło na Twój nastrój?</Text>
+
             <Controller
               name="moodTags"
               control={control}
@@ -104,5 +103,17 @@ const AddMoodScreen = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+    display: "flex",
+    gap: 10,
+  },
+  label: {
+    fontSize: 14,
+    color: colors.typography700,
+    fontWeight: 500,
+  },
+});
 
 export default AddMoodScreen;

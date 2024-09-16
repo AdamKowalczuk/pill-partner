@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 import { colors } from "@/styles/colors";
 import { emojiIcons } from "@/src/constants";
 
@@ -11,11 +11,19 @@ const RatingEmojis = ({ value, onChange }: any) => {
           key={emoji.id}
           style={[
             styles.emojiWrapper,
-            value === emoji.id && styles.selectedEmoji,
+            value === emoji.id && {
+              backgroundColor: emoji.secondaryColor,
+              borderColor: emoji.secondaryColor,
+            },
           ]}
           onPress={() => onChange(emoji.id)}
         >
-          <Text style={styles.emoji}>{emoji.icon}</Text>
+          <emoji.icon
+            style={[
+              styles.icon,
+              value === emoji.id && { color: emoji.primaryColor },
+            ]}
+          />
         </Pressable>
       ))}
     </View>
@@ -26,7 +34,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 20,
   },
   emojiWrapper: {
     padding: 10,
@@ -35,12 +42,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border300,
   },
-  selectedEmoji: {
-    backgroundColor: colors.primary500,
-    borderColor: colors.primary500,
-  },
-  emoji: {
-    fontSize: 32,
+
+  icon: {
+    color: colors.border300,
   },
 });
 

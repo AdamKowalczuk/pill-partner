@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   label: {
     marginBottom: 6,
     fontSize: 14,
-    color: colors.primary900,
+    color: colors.typography700,
+    fontWeight: 500,
   },
   errorText: {
     color: colors.error500,
