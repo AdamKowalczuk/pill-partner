@@ -18,7 +18,7 @@ const SettingsScreen = ({ navigation }: any) => {
   return (
     <View style={globalStyles.rootLayoutContainer}>
       <ScrollView>
-        <View style={styles.list}>
+        <View>
           <SettingsItem
             onPress={() => console.log("NotificationSettings")}
             Icon={NotificationIcon}
@@ -73,9 +73,6 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     backgroundColor: colors.border300,
-  },
-  list: {
-    marginTop: 20,
   },
 });
 

@@ -10,8 +10,8 @@ const MedicationScreen = () => {
     <View style={globalStyles.rootLayoutContainer}>
       <TabSwitcher
         tabs={[
-          { label: "Leki", component: <MedicationList /> },
-          { label: "Stan", component: <MedicationStock /> },
+          { label: "Leki do przyjęcia", component: <MedicationList /> },
+          { label: "Leki w zapasie", component: <MedicationStock /> },
         ]}
       />
     </View>

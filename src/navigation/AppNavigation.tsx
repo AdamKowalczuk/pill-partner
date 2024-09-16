@@ -97,6 +97,7 @@ export default function AppNavigation() {
   return (
     <NavigationContainer>
       {/* <MyStack /> */}
+
       <MyTabs />
     </NavigationContainer>
   );

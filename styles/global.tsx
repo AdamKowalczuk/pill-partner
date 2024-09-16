@@ -48,7 +48,6 @@ export const globalStyles = StyleSheet.create({
     paddingRight: 24,
     paddingTop: 32,
     paddingBottom: 32,
-    gap: 30,
     backgroundColor: colors.white,
   },
 });

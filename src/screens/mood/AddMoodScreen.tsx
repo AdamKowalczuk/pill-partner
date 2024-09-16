@@ -50,7 +50,7 @@ const AddMoodScreen = () => {
         </View>
       ) : (
         <>
-          <View style={[styles.wrapper]}>
+          <View className="flex gap-2">
             <Text style={[styles.label]}>Jak się dzisiaj czujesz?</Text>
             <Controller
               control={control}

@@ -8,7 +8,7 @@ import { globalStyles } from "@/styles/global";
 const MoodScreen = () => {
   return (
     <ScrollView>
-      <View style={globalStyles.rootLayoutContainer}>
+      <View style={globalStyles.rootLayoutContainer} className="flex gap-5">
         <TabSwitcher
           tabs={[
             { label: "Dzisiejszy nastrój", component: <AddMoodScreen /> },

@@ -2,7 +2,7 @@ import { Button, ButtonText } from "@/src/components/ui/button";
 import { loginSchema } from "@/validation/authSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
 import { View } from "react-native";
 import { useForm } from "react-hook-form";
 import FormInput from "@/src/components/ui/form-input";
@@ -81,7 +81,5 @@ const LoginScreen = ({ changeTab }: any) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default LoginScreen;

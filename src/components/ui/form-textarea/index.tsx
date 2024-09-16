@@ -22,8 +22,10 @@ const FormTextarea: React.FC<FormTextareaWithControllerProps> = ({
   error,
 }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+    <View>
+      <Text className="text-[14px] text-typography-700 mb-2 font-medium">
+        {label}
+      </Text>
       <Controller
         control={control}
         name={name}
@@ -38,24 +40,11 @@ const FormTextarea: React.FC<FormTextareaWithControllerProps> = ({
           </Textarea>
         )}
       />
-      {error && <Text style={styles.errorText}>{error}</Text>}
+      {error && (
+        <Text className="text-[14px] text-error-700 mt-[6px]">{error}</Text>
+      )}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {},
-  label: {
-    marginBottom: 6,
-    fontSize: 14,
-    color: colors.typography700,
-    fontWeight: 500,
-  },
-  errorText: {
-    color: colors.error500,
-    fontSize: 14,
-    marginTop: 6,
-  },
-});
 
 export default FormTextarea;

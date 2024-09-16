@@ -14,6 +14,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        border: {
+          300: "#D3D3D3",
+        },
         green: {
           50: "#F0FDF4",
           100: "#DCFCE7",

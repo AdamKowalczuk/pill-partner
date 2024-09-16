@@ -45,74 +45,80 @@ const AddMedicationScreen = () => {
   return (
     <View style={globalStyles.rootLayoutContainer}>
       <ScrollView>
-        <FormInput
-          control={control}
-          name="medicationName"
-          label="Nazwa leku"
-          placeholder="Wprowadź nazwę leku"
-          error={errors?.medicationName?.message}
-        />
-        <FormInput
-          control={control}
-          name="dosageAmount"
-          label="Ilość leku"
-          placeholder="Wprowadź ilość leku"
-          error={errors?.dosageAmount?.message}
-          keyboardType="numeric"
-        />
-        <Controller
-          name="medicationType"
-          control={control}
-          defaultValue=""
-          render={({ field: { onChange, value } }) => (
-            <MedicationTypeSelector value={value} onChange={onChange} />
-          )}
-        />
-        <FormInput
-          control={control}
-          name="duration"
-          label="Jak długo brać lek"
-          placeholder="Wprowadź czas trwania (dni)"
-          error={errors?.duration?.message}
-          keyboardType="numeric"
-        />
-        <FormInput
-          control={control}
-          name="stockAmount"
-          label="Ile masz leku na stanie?"
-          placeholder="Wprowadź liczbę np. 30 tabletek"
-          error={errors?.stockAmount?.message}
-          keyboardType="numeric"
-        />
-        <Text style={{ marginTop: 20, fontWeight: "bold" }}>Powiadomienia</Text>
-        {fields.map((field, index) => (
-          <Controller
-            key={field.id}
+        <View className="flex gap-5">
+          <FormInput
             control={control}
-            name={`notificationTime.${index}`}
+            name="medicationName"
+            label="Nazwa leku"
+            placeholder="Wprowadź nazwę leku"
+            error={errors?.medicationName?.message}
+          />
+          <FormInput
+            control={control}
+            name="dosageAmount"
+            label="Ilość leku"
+            placeholder="Wprowadź ilość leku"
+            error={errors?.dosageAmount?.message}
+            keyboardType="numeric"
+          />
+          <Controller
+            name="medicationType"
+            control={control}
+            defaultValue=""
             render={({ field: { onChange, value } }) => (
-              <NotificationTimeInput value={value} onChange={onChange} />
+              <MedicationTypeSelector value={value} onChange={onChange} />
             )}
           />
-        ))}
+          <FormInput
+            control={control}
+            name="duration"
+            label="Jak długo brać lek"
+            placeholder="Wprowadź czas trwania (dni)"
+            error={errors?.duration?.message}
+            keyboardType="numeric"
+          />
+          <FormInput
+            control={control}
+            name="stockAmount"
+            label="Ile masz leku na stanie?"
+            placeholder="Wprowadź liczbę np. 30 tabletek"
+            error={errors?.stockAmount?.message}
+            keyboardType="numeric"
+          />
+          <View className="flex gap-2">
+            <Text className="font-medium text-typography-700">
+              Powiadomienia
+            </Text>
+            {fields.map((field, index) => (
+              <Controller
+                key={field.id}
+                control={control}
+                name={`notificationTime.${index}`}
+                render={({ field: { onChange, value } }) => (
+                  <NotificationTimeInput value={value} onChange={onChange} />
+                )}
+              />
+            ))}
+          </View>
 
-        <Button
-          size="md"
-          variant="solid"
-          action="primary"
-          onPress={addNotificationTime}
-        >
-          <ButtonIcon as={AddIcon} />
-        </Button>
+          <Button
+            size="md"
+            variant="solid"
+            action="primary"
+            onPress={addNotificationTime}
+          >
+            <ButtonIcon as={AddIcon} />
+          </Button>
 
-        <Button
-          size="md"
-          variant="solid"
-          action="primary"
-          onPress={handleSubmit(onSubmit)}
-        >
-          <ButtonText>Dodaj lek</ButtonText>
-        </Button>
+          <Button
+            size="md"
+            variant="solid"
+            action="primary"
+            onPress={handleSubmit(onSubmit)}
+          >
+            <ButtonText>Dodaj lek</ButtonText>
+          </Button>
+        </View>
       </ScrollView>
     </View>
   );

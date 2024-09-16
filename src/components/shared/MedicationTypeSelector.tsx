@@ -13,8 +13,10 @@ const medicationTypes = [
 
 const MedicationTypeSelector = ({ value, onChange }: any) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Typ leku</Text>
+    <View className="flex gap-2">
+      <Text className="font-[16px] text-typography-700 font-medium">
+        Typ leku
+      </Text>
       <View style={styles.options}>
         {medicationTypes.map((type) => (
           <TouchableOpacity
@@ -41,14 +43,6 @@ const MedicationTypeSelector = ({ value, onChange }: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    gap: 6,
-  },
-  label: {
-    fontSize: 16,
-    color: colors.typography900,
-  },
   options: {
     display: "flex",
     flexDirection: "row",
