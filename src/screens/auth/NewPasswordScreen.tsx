@@ -1,15 +1,17 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
 import FormInput from "@/src/components/ui/form-input";
-import { newPasswordSchema } from "@/validation/medicationSchemas";
+import { newPasswordSchema } from "@/validation/authSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 import AuthImage from "@/src/assets/images/auth-image.svg";
+import { useTranslation } from "react-i18next";
 import { globalStyles } from "@/styles/global";
 
-const NewPasswordScreen = ({ changeTab }: any) => {
+const NewPasswordScreen = () => {
+  const { t } = useTranslation();
+
   const {
     control,
     handleSubmit,
@@ -21,29 +23,30 @@ const NewPasswordScreen = ({ changeTab }: any) => {
   const onSubmit = (data: any) => {
     console.log(data);
   };
+
   return (
     <>
       <AuthImage style={globalStyles.authImage} />
       <View style={globalStyles.authTopWrapper}>
-        <Text style={globalStyles.authHeader}>Zresetuj swoje hasło</Text>
+        <Text style={globalStyles.authHeader}>{t("resetYourPassword")}</Text>
         <Text style={globalStyles.authTextWrapper}>
-          Wprowadź nowe hasło, które będzie używane do logowania
+          {t("enterNewPassword")}
         </Text>
       </View>
 
-      <View style={styles.inputContainer}>
+      <View className="flex gap-16">
         <FormInput
           control={control}
           name="password"
-          label="Nowe hasło"
-          placeholder="Wpisz nowe hasło"
+          label={t("newPassword")}
+          placeholder={t("enterNewPassword")}
           error={errors?.password?.message}
         />
         <FormInput
           control={control}
           name="confirmPassword"
-          label="Potwierdź nowe hasło"
-          placeholder="Potwierdź nowe hasło"
+          label={t("confirmNewPassword")}
+          placeholder={t("confirmNewPassword")}
           error={errors?.confirmPassword?.message}
         />
         <Button
@@ -52,20 +55,11 @@ const NewPasswordScreen = ({ changeTab }: any) => {
           action="primary"
           onPress={handleSubmit(onSubmit)}
         >
-          <ButtonText>Resetuj hasło</ButtonText>
+          <ButtonText>{t("resetPasswordButton")}</ButtonText>
         </Button>
       </View>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  title: {},
-  subtitle: {},
-  inputContainer: {
-    display: "flex",
-    gap: 32,
-  },
-});
 
 export default NewPasswordScreen;

@@ -4,12 +4,12 @@ import { passwordResetSchema } from "@/validation/authSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 import AuthImage from "@/src/assets/images/auth-image.svg";
+import { useTranslation } from "react-i18next";
 import { globalStyles } from "@/styles/global";
 
-const PasswordResetScreen = ({ changeTab }: any) => {
+const PasswordResetScreen = () => {
   const {
     control,
     handleSubmit,
@@ -21,22 +21,25 @@ const PasswordResetScreen = ({ changeTab }: any) => {
   const onSubmit = (data: any) => {
     console.log(data);
   };
+
+  const { t } = useTranslation();
+
   return (
     <>
       <AuthImage style={globalStyles.authImage} />
       <View style={globalStyles.authTopWrapper}>
-        <Text style={globalStyles.authHeader}>Resetowanie hasła</Text>
+        <Text style={globalStyles.authHeader}>{t("resetPassword")}</Text>
         <Text style={globalStyles.authTextWrapper}>
-          Wprowadź swój adres e-mail, aby otrzymać instrukcje resetowania hasła
+          {t("enterEmailForReset")}
         </Text>
       </View>
 
-      <View style={styles.inputContainer}>
+      <View className="w-full mb-6">
         <FormInput
           control={control}
           name="email"
           label="Email"
-          placeholder="Wpisz email"
+          placeholder={t("enterEmail")}
           error={errors?.email?.message}
         />
       </View>
@@ -46,29 +49,10 @@ const PasswordResetScreen = ({ changeTab }: any) => {
         action="primary"
         onPress={handleSubmit(onSubmit)}
       >
-        <ButtonText>Wyślij link resetujący</ButtonText>
+        <ButtonText>{t("sendResetLink")}</ButtonText>
       </Button>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#333",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#666",
-    textAlign: "center",
-    marginBottom: 24,
-  },
-  inputContainer: {
-    width: "100%",
-    marginBottom: 24,
-  },
-});
 
 export default PasswordResetScreen;

@@ -1,64 +1,43 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
 import React from "react";
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions } from "react-native";
 import { Text, View } from "react-native";
 import SendImage from "@/src/assets/images/send-image.svg";
+import { useTranslation } from "react-i18next";
 import { globalStyles } from "@/styles/global";
-import { colors } from "@/styles/colors";
 
 const windowHeight = Dimensions.get("window").height;
 
 const PasswordResetSentScreen = ({ navigation }: any) => {
-  return (
-    <>
-      <View style={styles.container}>
-        <View style={styles.messageWrapper}>
-          <SendImage style={globalStyles.authImage} />
-          <View style={styles.textWrapper}>
-            <Text style={styles.title}>Wiadomość wysłana</Text>
-            <Text style={styles.subtitle}>
-              Wysłaliśmy do Ciebie instrukcje dotyczące resetowania hasła
-            </Text>
-          </View>
-        </View>
+  const { t } = useTranslation();
 
-        <Button
-          size="md"
-          variant="solid"
-          action="primary"
-          onPress={() => navigation.navigate("login")}
-        >
-          <ButtonText>Powrót do logowania</ButtonText>
-        </Button>
+  return (
+    <View
+      className="flex flex-col items-center justify-center gap-16"
+      style={{ height: windowHeight - 96, marginTop: -32 }}
+    >
+      <View className="flex gap-16">
+        <SendImage style={globalStyles.authImage} />
+        <View className="flex gap-5 items-center">
+          <Text className="text-[24px] font-bold text-primary-500">
+            {t("messageSentTitle")}
+          </Text>
+          <Text className="text-center text-base text-gray-600">
+            {t("messageSentSubtitle")}
+          </Text>
+        </View>
       </View>
-    </>
+
+      <Button
+        size="md"
+        variant="solid"
+        action="primary"
+        onPress={() => navigation.navigate("login")}
+      >
+        <ButtonText>{t("returnToLogin")}</ButtonText>
+      </Button>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    gap: 32,
-    height: windowHeight - 96,
-    marginTop: -32,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  messageWrapper: {
-    display: "flex",
-    gap: 32,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: colors.primary500,
-  },
-  textWrapper: {
-    display: "flex",
-    gap: 10,
-    alignItems: "center",
-  },
-  subtitle: {},
-});
 
 export default PasswordResetSentScreen;

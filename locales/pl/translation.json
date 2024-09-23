@@ -5,5 +5,20 @@
   "enterEmail": "Wpisz email",
   "enterPassword": "Wpisz hasło",
   "forgotPassword": "Nie pamiętam hasła",
-  "loginButton": "Zaloguj się"
+  "loginButton": "Zaloguj się",
+  "resetPassword": "Resetowanie hasła",
+  "enterEmailForReset": "Wprowadź swój adres e-mail, aby otrzymać instrukcje resetowania hasła",
+  "sendResetLink": "Wyślij link resetujący",
+  "resetYourPassword": "Zresetuj swoje hasło",
+  "enterNewPassword": "Wprowadź nowe hasło, które będzie używane do logowania",
+  "newPassword": "Nowe hasło",
+  "confirmNewPassword": "Potwierdź nowe hasło",
+  "resetPasswordButton": "Resetuj hasło",
+  "messageSentTitle": "Wiadomość wysłana",
+  "messageSentSubtitle": "Wysłaliśmy do Ciebie instrukcje dotyczące resetowania hasła",
+  "returnToLogin": "Powrót do logowania",
+  "login": "Zaloguj się",
+  "alreadyHaveAccount": "Masz już konto?",
+  "confirmPassword": "Powtórz hasło",
+  "confirmPasswordPlaceholder": "Wpisz ponownie hasło"
 }

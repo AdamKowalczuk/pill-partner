@@ -5,5 +5,20 @@
   "enterEmail": "Enter your email",
   "enterPassword": "Enter your password",
   "forgotPassword": "Forgot password",
-  "loginButton": "Log in"
+  "loginButton": "Log in",
+  "resetPassword": "Reset Password",
+  "enterEmailForReset": "Enter your email address to receive reset instructions",
+  "sendResetLink": "Send reset link",
+  "resetYourPassword": "Reset your password",
+  "enterNewPassword": "Enter a new password to use for logging in",
+  "newPassword": "New password",
+  "confirmNewPassword": "Confirm new password",
+  "resetPasswordButton": "Reset password",
+  "messageSentTitle": "Message sent",
+  "messageSentSubtitle": "We have sent instructions to reset your password",
+  "returnToLogin": "Return to login",
+  "login": "Log In",
+  "alreadyHaveAccount": "Already have an account?",
+  "confirmPassword": "Confirm password",
+  "confirmPasswordPlaceholder": "Re-enter password"
 }
