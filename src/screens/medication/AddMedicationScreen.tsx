@@ -11,11 +11,14 @@ import { addMedicationSchema } from "@/validation/medicationSchemas";
 import MedicationTypeSelector from "@/src/components/shared/MedicationTypeSelector";
 import NotificationTimeInput from "@/src/components/shared/NotificationTimeInput";
 import AddIcon from "@/src/assets/icons/add-icon.svg";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 
 const AddMedicationScreen = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<any>({
     resolver: yupResolver(addMedicationSchema),
@@ -28,7 +31,7 @@ const AddMedicationScreen = () => {
       notificationTime: ["08:00"],
     },
   });
-  console.log(errors);
+  const navigation = useNavigation();
 
   const { fields, append } = useFieldArray({
     control,
@@ -39,8 +42,26 @@ const AddMedicationScreen = () => {
     append("");
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     console.log(data);
+    try {
+      const storedData: any = await AsyncStorage.getItem("medications");
+      const medicationsArray = storedData ? JSON.parse(storedData) : [];
+
+      medicationsArray.push({
+        ...data,
+        id: JSON.parse(storedData)?.length ? JSON.parse(storedData)?.length : 0,
+      });
+
+      await AsyncStorage.setItem(
+        "medications",
+        JSON.stringify(medicationsArray)
+      );
+    } catch (error) {
+      console.error("Błąd podczas aktualizacji danych", error);
+    }
+    reset();
+    navigation.navigate("Leki");
   };
   return (
     <View style={globalStyles.rootLayoutContainer}>
