@@ -8,6 +8,7 @@ import Auth from "./src/screens/auth/AuthScreen";
 import useAuthStore from "./src/store/useAuthStore";
 import { useEffect } from "react";
 import { globalStyles } from "./styles/global";
+import "./i18n";
 
 export default function App() {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);

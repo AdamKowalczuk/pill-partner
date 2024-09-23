@@ -1,0 +1,9 @@
+{
+  "signUp": "Sign up",
+  "loginToAccount": "Login to your account",
+  "noAccount": "Don't have an account?",
+  "enterEmail": "Enter your email",
+  "enterPassword": "Enter your password",
+  "forgotPassword": "Forgot password",
+  "loginButton": "Log in"
+}

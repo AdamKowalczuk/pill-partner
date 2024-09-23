@@ -9,6 +9,7 @@ import FormInput from "@/src/components/ui/form-input";
 import AuthImage from "@/src/assets/images/auth-image.svg";
 import { globalStyles } from "@/styles/global";
 import useAuthStore from "@/src/store/useAuthStore";
+import { useTranslation } from "react-i18next";
 
 const LoginScreen = ({ changeTab }: any) => {
   const {
@@ -23,23 +24,24 @@ const LoginScreen = ({ changeTab }: any) => {
     },
   });
 
+  const { t } = useTranslation();
+
   const login = useAuthStore((state) => state.login);
 
   const onSubmit = (data: any) => {
     login(data);
     console.log(data);
   };
+
   return (
     <>
       <AuthImage style={globalStyles.authImage} />
       <View style={globalStyles.authTopWrapper}>
-        <Text style={globalStyles.authHeader}>
-          Zaloguj się do swojego konta
-        </Text>
+        <Text style={globalStyles.authHeader}>{t("loginToAccount")}</Text>
         <View style={globalStyles.authTextWrapper}>
-          <Text style={globalStyles.authText}>Nie masz konta?</Text>
+          <Text style={globalStyles.authText}>{t("noAccount")}</Text>
           <Button onPress={() => changeTab("register")} variant="link">
-            <ButtonText>Zarejestruj się</ButtonText>
+            <ButtonText>{t("signUp")}</ButtonText>
           </Button>
         </View>
       </View>
@@ -50,20 +52,20 @@ const LoginScreen = ({ changeTab }: any) => {
             control={control}
             name="email"
             label="Email"
-            placeholder="Wpisz email"
+            placeholder={t("enterEmail")}
             error={errors?.email?.message}
           />
           <FormInput
             control={control}
             name="password"
             label="Hasło"
-            placeholder="Wpisz hasło"
+            placeholder={t("enterPassword")}
             error={errors?.password?.message}
             type="password"
           />
           <View style={globalStyles.rememberPasswordButton}>
             <Button variant="link" onPress={() => changeTab("passwordReset")}>
-              <ButtonText>Nie pamiętam hasła</ButtonText>
+              <ButtonText>{t("forgotPassword")}</ButtonText>
             </Button>
           </View>
         </View>
@@ -75,7 +77,7 @@ const LoginScreen = ({ changeTab }: any) => {
           onPress={handleSubmit(onSubmit)}
           style={{ marginTop: 32 }}
         >
-          <ButtonText>Zaloguj się</ButtonText>
+          <ButtonText>{t("loginButton")}</ButtonText>
         </Button>
       </View>
     </>
