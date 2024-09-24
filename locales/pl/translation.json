@@ -20,5 +20,19 @@
   "login": "Zaloguj się",
   "alreadyHaveAccount": "Masz już konto?",
   "confirmPassword": "Powtórz hasło",
-  "confirmPasswordPlaceholder": "Wpisz ponownie hasło"
+  "confirmPasswordPlaceholder": "Wpisz ponownie hasło",
+  "notFound": "Strona nie znaleziona",
+  "goBack": "Wróć",
+  "medicationName": "Nazwa leku",
+  "enterMedicationName": "Wprowadź nazwę leku",
+  "dosageAmount": "Ilość leku",
+  "enterDosageAmount": "Wprowadź ilość leku",
+  "duration": "Jak długo brać lek",
+  "enterDuration": "Wprowadź czas trwania (dni)",
+  "stockAmount": "Ile masz leku na stanie?",
+  "enterStockAmount": "Wprowadź liczbę np. 30 tabletek",
+  "notifications": "Powiadomienia",
+  "addMedication": "Dodaj lek",
+  "medicationsTab": "Leki",
+  "updateError": "Błąd podczas aktualizacji danych"
 }

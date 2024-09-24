@@ -1,8 +1,5 @@
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
-import MessageCard from "@/src/components/shared/MessageCard";
-import EmptyListImage from "@/src/assets/images/empty-list-image.svg";
-import { globalStyles } from "@/styles/global";
+import { ScrollView, Text, View } from "react-native";
 import { Button, ButtonIcon, ButtonText } from "@/src/components/ui/button";
 import FormInput from "@/src/components/ui/form-input";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
@@ -13,6 +10,8 @@ import NotificationTimeInput from "@/src/components/shared/NotificationTimeInput
 import AddIcon from "@/src/assets/icons/add-icon.svg";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import { useTranslation } from "react-i18next";
+import { globalStyles } from "@/styles/global";
 
 const AddMedicationScreen = () => {
   const {
@@ -31,7 +30,9 @@ const AddMedicationScreen = () => {
       notificationTime: ["08:00"],
     },
   });
-  const navigation = useNavigation();
+
+  const { t } = useTranslation();
+  const navigation: any = useNavigation();
 
   const { fields, append } = useFieldArray({
     control,
@@ -50,7 +51,7 @@ const AddMedicationScreen = () => {
 
       medicationsArray.push({
         ...data,
-        id: JSON.parse(storedData)?.length ? JSON.parse(storedData)?.length : 0,
+        id: medicationsArray.length || 0,
       });
 
       await AsyncStorage.setItem(
@@ -58,11 +59,12 @@ const AddMedicationScreen = () => {
         JSON.stringify(medicationsArray)
       );
     } catch (error) {
-      console.error("Błąd podczas aktualizacji danych", error);
+      console.error(t("updateError"), error);
     }
     reset();
-    navigation.navigate("Leki");
+    navigation.navigate("Medication");
   };
+
   return (
     <View style={globalStyles.rootLayoutContainer}>
       <ScrollView>
@@ -70,22 +72,22 @@ const AddMedicationScreen = () => {
           <FormInput
             control={control}
             name="medicationName"
-            label="Nazwa leku"
-            placeholder="Wprowadź nazwę leku"
+            label={t("medicationName")}
+            placeholder={t("enterMedicationName")}
             error={errors?.medicationName?.message}
           />
           <FormInput
             control={control}
             name="dosageAmount"
-            label="Ilość leku"
-            placeholder="Wprowadź ilość leku"
+            label={t("dosageAmount")}
+            placeholder={t("enterDosageAmount")}
             error={errors?.dosageAmount?.message}
             keyboardType="numeric"
           />
           <Controller
             name="medicationType"
             control={control}
-            defaultValue=""
+            defaultValue="pills"
             render={({ field: { onChange, value } }) => (
               <MedicationTypeSelector value={value} onChange={onChange} />
             )}
@@ -93,22 +95,22 @@ const AddMedicationScreen = () => {
           <FormInput
             control={control}
             name="duration"
-            label="Jak długo brać lek"
-            placeholder="Wprowadź czas trwania (dni)"
+            label={t("duration")}
+            placeholder={t("enterDuration")}
             error={errors?.duration?.message}
             keyboardType="numeric"
           />
           <FormInput
             control={control}
             name="stockAmount"
-            label="Ile masz leku na stanie?"
-            placeholder="Wprowadź liczbę np. 30 tabletek"
+            label={t("stockAmount")}
+            placeholder={t("enterStockAmount")}
             error={errors?.stockAmount?.message}
             keyboardType="numeric"
           />
           <View className="flex gap-2">
             <Text className="font-medium text-typography-700">
-              Powiadomienia
+              {t("notifications")}
             </Text>
             {fields.map((field, index) => (
               <Controller
@@ -137,7 +139,7 @@ const AddMedicationScreen = () => {
             action="primary"
             onPress={handleSubmit(onSubmit)}
           >
-            <ButtonText>Dodaj lek</ButtonText>
+            <ButtonText>{t("addMedication")}</ButtonText>
           </Button>
         </View>
       </ScrollView>

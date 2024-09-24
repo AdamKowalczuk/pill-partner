@@ -18,7 +18,7 @@ const RatingEmojis = ({ value, onChange }: any) => {
           onPress={() => onChange(emoji.id)}
         >
           <emoji.icon
-            className="text-border-300 "
+            className="text-border-300"
             style={[value === emoji.id && { color: emoji.primaryColor }]}
           />
         </Pressable>

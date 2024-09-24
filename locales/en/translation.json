@@ -20,5 +20,19 @@
   "login": "Log In",
   "alreadyHaveAccount": "Already have an account?",
   "confirmPassword": "Confirm password",
-  "confirmPasswordPlaceholder": "Re-enter password"
+  "confirmPasswordPlaceholder": "Re-enter password",
+  "notFound": "Page not found",
+  "goBack": "Go back",
+  "medicationName": "Medication Name",
+  "enterMedicationName": "Enter medication name",
+  "dosageAmount": "Dosage Amount",
+  "enterDosageAmount": "Enter dosage amount",
+  "duration": "How long to take the medication",
+  "enterDuration": "Enter duration (days)",
+  "stockAmount": "How much stock do you have?",
+  "enterStockAmount": "Enter quantity, e.g., 30 tablets",
+  "notifications": "Notifications",
+  "addMedication": "Add Medication",
+  "medicationsTab": "Medications",
+  "updateError": "Error updating data"
 }

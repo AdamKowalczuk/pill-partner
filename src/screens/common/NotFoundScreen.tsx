@@ -1,47 +1,24 @@
 import { Button, ButtonText } from "@/src/components/ui/button";
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import NotFoundImage from "@/src/assets/images/not-found-image.svg";
+import { useTranslation } from "react-i18next";
 
 const NotFoundScreen = () => {
   const navigation = useNavigation();
+  const { t } = useTranslation();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>404</Text>
-      <Text style={styles.subtitle}>Strona nie znaleziona</Text>
+    <View className="flex-1 justify-center items-center p-5 bg-white">
+      <Text className="text-primary-500 text-[48px] font-bold mb-4">404</Text>
+      <Text className="text-primary-500 text-[18px] mb-6">{t("notFound")}</Text>
       <NotFoundImage />
       <Button onPress={() => navigation.goBack()}>
-        <ButtonText>Wróć</ButtonText>
+        <ButtonText>{t("goBack")}</ButtonText>
       </Button>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 48,
-    fontWeight: "bold",
-    color: "#6366F1",
-    marginBottom: 16,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: "#6366F1",
-    marginBottom: 24,
-  },
-  image: {
-    width: 200,
-    height: 200,
-    marginBottom: 32,
-  },
-});
 
 export default NotFoundScreen;

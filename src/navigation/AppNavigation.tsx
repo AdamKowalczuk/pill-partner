@@ -45,7 +45,7 @@ export default function AppNavigation() {
         }}
       >
         <Tab.Screen
-          name="Leki"
+          name="Medication"
           component={MedicationScreen}
           options={{
             tabBarIcon: ({ color }) => (
@@ -63,7 +63,7 @@ export default function AppNavigation() {
           }}
         />
         <Tab.Screen
-          name="Dodaj lek"
+          name="AddMedication"
           component={AddMedication}
           options={{
             tabBarIcon: ({ color }) => (
@@ -74,7 +74,7 @@ export default function AppNavigation() {
           }}
         />
         <Tab.Screen
-          name="Historia"
+          name="History"
           component={History}
           options={{
             tabBarIcon: ({ color }) => (
@@ -83,7 +83,7 @@ export default function AppNavigation() {
           }}
         />
         <Tab.Screen
-          name="Ustawienia"
+          name="Settings"
           component={Settings}
           options={{
             tabBarIcon: ({ color }) => (
