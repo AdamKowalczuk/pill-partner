@@ -34,5 +34,20 @@
   "notifications": "Notifications",
   "addMedication": "Add Medication",
   "medicationsTab": "Medications",
-  "updateError": "Error updating data"
+  "updateError": "Error updating data",
+  "howAreYouFeeling": "How are you feeling today?",
+  "whatInfluencedMood": "What influenced your mood?",
+  "addMore": "Want to add more?",
+  "describeFeelings": "Describe your feelings or situations that influenced your mood...",
+  "successTitle": "Success",
+  "moodSaved": "Your mood has been saved",
+  "saveButton": "Save",
+  "theme": "Theme",
+  "language": "Language",
+  "changePassword": "Change Password",
+  "logout": "Log out",
+  "moodTab": "Mood",
+  "addMedicationTab": "Add Medication",
+  "historyTab": "History",
+  "settingsTab": "Settings"
 }

@@ -8,17 +8,20 @@ import AddIcon from "../assets/icons/add-icon.svg";
 import CalendarIcon from "../assets/icons/calendar-icon.svg";
 import ProfileIcon from "../assets/icons/profile-icon.svg";
 import History from "@/src/screens/history/History";
-import { StatusBar, StyleSheet, View } from "react-native";
-import { colors } from "@/styles/colors";
+import { View, StatusBar, StyleSheet } from "react-native";
 import Settings from "@/src/screens/settings/SettingsScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MedicationScreen from "../screens/medication/MedicationScreen";
 import MoodScreen from "../screens/mood/MoodScreen";
+import { useTranslation } from "react-i18next";
+import { colors } from "@/styles/colors";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function AppNavigation() {
+  const { t } = useTranslation();
+
   function MyStack() {
     return (
       <Stack.Navigator>
@@ -42,6 +45,7 @@ export default function AppNavigation() {
           headerStyle: styles.header,
           headerTintColor: "#fff",
           headerTitleStyle: styles.headerTitle,
+          headerTitleAlign: "center",
         }}
       >
         <Tab.Screen
@@ -51,6 +55,7 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <PillsIcon color={color} width={30} height={30} />
             ),
+            title: t("medicationsTab"),
           }}
         />
         <Tab.Screen
@@ -60,6 +65,7 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <MoodIcon color={color} width={30} height={30} />
             ),
+            title: t("moodTab"),
           }}
         />
         <Tab.Screen
@@ -71,6 +77,7 @@ export default function AppNavigation() {
                 <AddIcon color="#fff" width={16} height={16} />
               </View>
             ),
+            title: t("addMedicationTab"),
           }}
         />
         <Tab.Screen
@@ -80,6 +87,7 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <CalendarIcon color={color} width={30} height={30} />
             ),
+            title: t("historyTab"),
           }}
         />
         <Tab.Screen
@@ -89,6 +97,7 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <ProfileIcon color={color} width={30} height={30} />
             ),
+            title: t("settingsTab"),
           }}
         />
       </Tab.Navigator>

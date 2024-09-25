@@ -34,5 +34,20 @@
   "notifications": "Powiadomienia",
   "addMedication": "Dodaj lek",
   "medicationsTab": "Leki",
-  "updateError": "Błąd podczas aktualizacji danych"
+  "updateError": "Błąd podczas aktualizacji danych",
+  "howAreYouFeeling": "Jak się dzisiaj czujesz?",
+  "whatInfluencedMood": "Co wpłynęło na Twój nastrój?",
+  "addMore": "Chcesz dodać coś więcej?",
+  "describeFeelings": "Opisz swoje odczucia lub sytuacje, które miały wpływ na Twój nastrój...",
+  "successTitle": "Sukces",
+  "moodSaved": "Twój nastrój został zapisany",
+  "saveButton": "Zapisz",
+  "theme": "Motyw",
+  "language": "Język",
+  "changePassword": "Zmiana hasła",
+  "logout": "Wyloguj się",
+  "moodTab": "Nastrój",
+  "addMedicationTab": "Dodaj lek",
+  "historyTab": "Historia",
+  "settingsTab": "Ustawienia"
 }

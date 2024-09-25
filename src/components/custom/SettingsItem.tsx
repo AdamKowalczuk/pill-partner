@@ -1,8 +1,7 @@
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import React from "react";
-import { StyleSheet } from "react-native";
-import { TouchableOpacity, View } from "react-native";
 import ChevronRightIcon from "@/src/assets/icons/chevron-right-icon.svg";
+import { useTranslation } from "react-i18next";
 
 interface SettingsItemProps {
   onPress: () => void;
@@ -17,42 +16,19 @@ const SettingsItem = ({
   title,
   showChevron = false,
 }: SettingsItemProps) => {
-  return (
-    <Pressable onPress={onPress} style={styles.listItem}>
-      <View style={styles.listItemContent}>
-        <View style={styles.listItemLeft}>
-          <Icon />
-          <Text style={styles.listItemText}>{title}</Text>
-        </View>
+  const { t } = useTranslation();
 
+  return (
+    <Pressable onPress={onPress} className="flex-row py-4 px-4 items-center">
+      <View className="flex-row flex-1 items-center justify-between">
+        <View className="flex-row items-center">
+          <Icon />
+          <Text className="text-[16px] text-gray-800 ml-5">{t(title)}</Text>
+        </View>
         {showChevron && <ChevronRightIcon />}
       </View>
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  listItem: {
-    flexDirection: "row",
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    alignItems: "center",
-  },
-  listItemContent: {
-    flexDirection: "row",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  listItemLeft: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  listItemText: {
-    fontSize: 16,
-    color: "#333",
-    marginLeft: 10,
-  },
-});
 
 export default SettingsItem;

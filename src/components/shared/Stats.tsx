@@ -1,7 +1,6 @@
-import { colors } from "@/styles/colors";
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
+import { useTranslation } from "react-i18next";
 
 type StatsProps = {
   Icon: React.FC<any>;
@@ -10,46 +9,17 @@ type StatsProps = {
 };
 
 const Stats = ({ Icon, title, value }: StatsProps) => {
+  const { t } = useTranslation();
+
   return (
-    <View style={styles.container}>
-      <Icon style={styles.image} />
-      <View style={styles.textWrapper}>
-        <Text style={styles.value}>{value}</Text>
-        <Text style={styles.title}>{title}</Text>
+    <View className="flex flex-row p-5 border border-solid border-primary-500 rounded items-center gap-5">
+      <Icon className="w-8" />
+      <View className="flex gap-1">
+        <Text className="text-primary-500 font-bold text-xl">{value}</Text>
+        <Text className="text-typography-500 text-sm">{t(title)}</Text>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    paddingBottom: 20,
-    paddingTop: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: colors.primary500,
-    borderRadius: 4,
-    gap: 20,
-    alignItems: "center",
-  },
-  image: { width: 30 },
-  textWrapper: {
-    display: "flex",
-    gap: 6,
-  },
-  value: {
-    color: colors.primary500,
-    fontWeight: 700,
-    fontSize: 20,
-  },
-  title: {
-    color: colors.typography500,
-    fontSize: 14,
-  },
-});
 
 export default Stats;

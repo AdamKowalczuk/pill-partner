@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView } from "react-native";
 import { View } from "react-native";
 import MoonIcon from "@/src/assets/icons/moon-icon.svg";
 import GlobeIcon from "@/src/assets/icons/globe-icon.svg";
 import LockIcon from "@/src/assets/icons/lock-icon.svg";
 import LogoutIcon from "@/src/assets/icons/logout-icon.svg";
 import NotificationIcon from "@/src/assets/icons/notification-icon.svg";
-import { colors } from "@/styles/colors";
 import SettingsItem from "@/src/components/custom/SettingsItem";
-import { globalStyles } from "@/styles/global";
+import { useTranslation } from "react-i18next";
 import useAuthStore from "@/src/store/useAuthStore";
+import { globalStyles } from "@/styles/global";
 
 const SettingsScreen = ({ navigation }: any) => {
+  const { t } = useTranslation();
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
 
   const logout = useAuthStore((state) => state.logout);
+
   return (
     <View style={globalStyles.rootLayoutContainer}>
       <ScrollView>
@@ -22,58 +24,39 @@ const SettingsScreen = ({ navigation }: any) => {
           <SettingsItem
             onPress={() => console.log("NotificationSettings")}
             Icon={NotificationIcon}
-            title="Powiadomienia"
+            title={t("notifications")}
           />
-          <View style={styles.divider} />
+          <View className="h-px bg-border-300" />
           <SettingsItem
             onPress={() => console.log("ThemeSettings")}
             Icon={MoonIcon}
-            title="Motyw"
+            title={t("theme")}
             showChevron={true}
           />
-          <View style={styles.divider} />
+          <View className="h-px bg-border-300" />
           <SettingsItem
             onPress={() => console.log("LanguageSettings")}
             Icon={GlobeIcon}
-            title="Język"
+            title={t("language")}
             showChevron={true}
           />
-          <View style={styles.divider} />
+          <View className="h-px bg-border-300" />
           <SettingsItem
             onPress={() => console.log("ChangePassword")}
             Icon={LockIcon}
-            title="Zmiana hasła"
+            title={t("changePassword")}
             showChevron={true}
           />
-          <View style={styles.divider} />
+          <View className="h-px bg-border-300" />
           <SettingsItem
             onPress={logout}
             Icon={LogoutIcon}
-            title="Wyloguj się"
+            title={t("logout")}
           />
         </View>
       </ScrollView>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFFFFF",
-  },
-  header: {
-    backgroundColor: "#8A7DFA",
-    paddingVertical: 20,
-    paddingHorizontal: 15,
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  divider: {
-    height: 1,
-    backgroundColor: colors.border300,
-  },
-});
 
 export default SettingsScreen;

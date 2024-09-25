@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import FormInput from "@/src/components/ui/form-input";
+import { Text, View } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { moodSchema } from "@/validation/moodSchemas";
@@ -12,10 +11,10 @@ import { moodTagsOptions } from "@/src/constants";
 import ErrorMessage from "@/src/components/shared/ErrorMessage";
 import RatingEmojis from "@/src/components/custom/RatingEmojis";
 import FormTextarea from "@/src/components/ui/form-textarea";
-import { globalStyles } from "@/styles/global";
-import { colors } from "@/styles/colors";
+import { useTranslation } from "react-i18next";
 
 const AddMoodScreen = () => {
+  const { t } = useTranslation();
   const [isTodayMoodAdded, setIsTodayMoodAdded] = useState<boolean>(false);
 
   const {
@@ -44,14 +43,16 @@ const AddMoodScreen = () => {
         <View>
           <MessageCard
             Image={SuccessImage}
-            title="Sukces"
-            subtitle="Twój nastrój zastał zapisany"
+            title={t("successTitle")}
+            subtitle={t("moodSaved")}
           />
         </View>
       ) : (
         <>
-          <View className="flex gap-2">
-            <Text style={[styles.label]}>Jak się dzisiaj czujesz?</Text>
+          <View className="flex flex-col gap-2">
+            <Text className="text-[14px] font-medium text-typography-700">
+              {t("howAreYouFeeling")}
+            </Text>
             <Controller
               control={control}
               name="moodRating"
@@ -63,8 +64,10 @@ const AddMoodScreen = () => {
               <ErrorMessage error={errors.moodRating.message} />
             )}
           </View>
-          <View style={[styles.wrapper]}>
-            <Text style={[styles.label]}>Co wpłynęło na Twój nastrój?</Text>
+          <View className="flex gap-5">
+            <Text className="text-[14px] font-medium text-typography-700">
+              {t("whatInfluencedMood")}
+            </Text>
 
             <Controller
               name="moodTags"
@@ -86,8 +89,8 @@ const AddMoodScreen = () => {
           <FormTextarea
             control={control}
             name="additionalNotes"
-            label="Chcesz dodać coś więcej?"
-            placeholder="Opisz swoje odczucia lub sytuacje, które miały wpływ na Twój nastrój..."
+            label={t("addMore")}
+            placeholder={t("describeFeelings")}
             error={errors?.additionalNotes?.message}
           />
           <Button
@@ -96,24 +99,12 @@ const AddMoodScreen = () => {
             action="primary"
             onPress={handleSubmit(onSubmit)}
           >
-            <ButtonText>Zapisz</ButtonText>
+            <ButtonText>{t("saveButton")}</ButtonText>
           </Button>
         </>
       )}
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    display: "flex",
-    gap: 10,
-  },
-  label: {
-    fontSize: 14,
-    color: colors.typography700,
-    fontWeight: 500,
-  },
-});
 
 export default AddMoodScreen;
