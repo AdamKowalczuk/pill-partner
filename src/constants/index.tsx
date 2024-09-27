@@ -25,13 +25,13 @@ export const moodTagsOptions = [
 
 export const emojiIcons = [
   {
-    id: 1,
+    id: 5,
     icon: SmilingFaceWithOpenFaceIcon,
     primaryColor: colors.green700,
     secondaryColor: colors.green200,
   },
   {
-    id: 2,
+    id: 4,
     icon: SmilingFaceWithSmilingEyesIcon,
     primaryColor: colors.lime700,
     secondaryColor: colors.lime200,
@@ -43,13 +43,13 @@ export const emojiIcons = [
     secondaryColor: colors.yellow200,
   },
   {
-    id: 4,
+    id: 2,
     icon: WhiteFrowingFaceIcon,
     primaryColor: colors.orange700,
     secondaryColor: colors.orange200,
   },
   {
-    id: 5,
+    id: 1,
     icon: CryingFace,
     primaryColor: colors.error700,
     secondaryColor: colors.error200,

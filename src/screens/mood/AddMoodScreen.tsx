@@ -12,6 +12,7 @@ import ErrorMessage from "@/src/components/shared/ErrorMessage";
 import RatingEmojis from "@/src/components/custom/RatingEmojis";
 import FormTextarea from "@/src/components/ui/form-textarea";
 import { useTranslation } from "react-i18next";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const AddMoodScreen = () => {
   const { t } = useTranslation();
@@ -20,6 +21,7 @@ const AddMoodScreen = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(moodSchema),
@@ -30,9 +32,25 @@ const AddMoodScreen = () => {
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: any) => {
     setIsTodayMoodAdded(true);
+    try {
+      const storedData: any = await AsyncStorage.getItem("moodHistoryList");
+      const moodsArray = storedData ? JSON.parse(storedData) : [];
+
+      const currentDateTime = new Date().toISOString();
+
+      moodsArray.push({
+        ...data,
+        id: moodsArray.length || 0,
+        timestamp: currentDateTime,
+      });
+
+      await AsyncStorage.setItem("moodHistoryList", JSON.stringify(moodsArray));
+    } catch (error) {
+      console.error(t("updateError"), error);
+    }
+    reset();
   };
 
   const handleTagSelect = () => {};
