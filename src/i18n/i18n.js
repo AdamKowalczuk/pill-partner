@@ -14,8 +14,6 @@ const languageDetector = {
   async: true,
   detect: (callback) => {
     const locale = RNLocalize.getLocales()[0].languageCode;
-    console.log(locale);
-
     callback(locale);
   },
   init: () => {},

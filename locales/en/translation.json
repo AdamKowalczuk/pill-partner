@@ -49,5 +49,12 @@
   "moodTab": "Mood",
   "addMedicationTab": "Add Medication",
   "historyTab": "History",
-  "settingsTab": "Settings"
+  "settingsTab": "Settings",
+  "chooseLanguage": "Choose a language",
+  "polish": "Polish",
+  "english": "English",
+  "confirm": "Confirm",
+  "chooseTheme": "Choose theme",
+  "lightMode": "Light",
+  "darkMode": "Dark"
 }

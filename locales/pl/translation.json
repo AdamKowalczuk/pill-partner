@@ -49,5 +49,12 @@
   "moodTab": "Nastrój",
   "addMedicationTab": "Dodaj lek",
   "historyTab": "Historia",
-  "settingsTab": "Ustawienia"
+  "settingsTab": "Ustawienia",
+  "chooseLanguage": "Wybierz język",
+  "polish": "Polski",
+  "english": "Angielski",
+  "confirm": "Zatwierdź",
+  "chooseTheme": "Wybierz motyw",
+  "lightMode": "Jasny",
+  "darkMode": "Ciemny"
 }

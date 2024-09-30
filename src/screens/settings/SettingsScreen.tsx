@@ -10,12 +10,15 @@ import SettingsItem from "@/src/components/custom/SettingsItem";
 import { useTranslation } from "react-i18next";
 import useAuthStore from "@/src/store/useAuthStore";
 import { globalStyles } from "@/styles/global";
+import LanguageSelector from "./LanguageSelector";
+import ThemeSelector from "./ThemeSelector";
 
 const SettingsScreen = ({ navigation }: any) => {
   const { t } = useTranslation();
-  const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
+  const [isLanguageSelectorOpen, setIsLanguageSelectorOpen] = useState(false);
+  const [isThemeSelectorOpen, setIsThemeSelectorOpen] = useState(false);
 
-  const logout = useAuthStore((state) => state.logout);
+  const logout = useAuthStore((state:any) => state.logout);
 
   return (
     <View style={globalStyles.rootLayoutContainer}>
@@ -28,14 +31,14 @@ const SettingsScreen = ({ navigation }: any) => {
           />
           <View className="h-px bg-border-300" />
           <SettingsItem
-            onPress={() => console.log("ThemeSettings")}
+            onPress={() => setIsThemeSelectorOpen(true)}
             Icon={MoonIcon}
             title={t("theme")}
             showChevron={true}
           />
           <View className="h-px bg-border-300" />
           <SettingsItem
-            onPress={() => console.log("LanguageSettings")}
+            onPress={() => setIsLanguageSelectorOpen(true)}
             Icon={GlobeIcon}
             title={t("language")}
             showChevron={true}
@@ -55,6 +58,9 @@ const SettingsScreen = ({ navigation }: any) => {
           />
         </View>
       </ScrollView>
+      <LanguageSelector isOpen={isLanguageSelectorOpen} setIsOpen={setIsLanguageSelectorOpen}/>
+      <ThemeSelector isOpen={isThemeSelectorOpen} setIsOpen={setIsThemeSelectorOpen}/>
+      
     </View>
   );
 };
