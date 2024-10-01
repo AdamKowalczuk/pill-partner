@@ -17,18 +17,24 @@ import {
   RadioLabel,
 } from "@/src/components/ui/radio";
 import { VStack } from "@/src/components/ui/vstack";
+import useThemeStore from "@/src/store/useThemeStore";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
 
 const ThemeSelector = ({ isOpen, setIsOpen }: any) => {
   const { t, i18n } = useTranslation();
+  const { theme, setTheme } = useThemeStore((state) => ({
+    theme: state.theme,
+    setTheme: state.setTheme,
+  }));
 
-  const [values, setValues] = useState("dark");
+  const [values, setValues] = useState(theme);
 
   const handleClose = () => setIsOpen(false);
 
   const onSubmit = () => {
+    setTheme(values);
     setIsOpen(false);
   };
 
