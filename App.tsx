@@ -11,17 +11,22 @@ import useThemeStore from "./src/store/useThemeStore";
 
 export default function App() {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-  const { theme, setTheme } = useThemeStore((state) => ({
+  const { theme, setTheme, setNotification } = useThemeStore((state) => ({
     theme: state.theme,
     setTheme: state.setTheme,
+    setNotification: state.setNotification,
   }));
   const checkLoginStatus = useAuthStore((state) => state.checkLoginStatus);
 
   useEffect(() => {
     checkLoginStatus();
     const storedTheme = localStorage.getItem("theme");
+    const storedNotification = localStorage.getItem("notification");
     if (storedTheme) {
       setTheme(storedTheme);
+    }
+    if (storedNotification) {
+      setNotification(storedNotification);
     }
   }, []);
 

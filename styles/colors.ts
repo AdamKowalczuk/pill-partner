@@ -38,4 +38,8 @@ export const colors = {
   primary700: "#4338CA",
   primary800: "#3730A3",
   primary900: "#312E81",
+
+  gray50: "#FAFAFA",
+  gray300: "#D4D4D4",
+  gray500: "#737373",
 };
